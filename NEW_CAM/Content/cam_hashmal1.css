@@ -1,0 +1,196 @@
+#wrapper{
+     height : 700px;
+     width: 120%;
+     float:right;
+     border-radius: 20px;
+     background: #f6f6f6;
+     float:right;
+     direction:rtl;
+     background: -webkit-gradient(linear, left top, left bottom, from(#3e51ca), to(#B5B8EA));
+     /*background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgn-lyEzto8Of8Gpkv7_B7DBWxrKGk17hSUkdtNRbkFHZbgkZD");
+     background-size: 480px 700px;
+    background-repeat: repeat-x,y;*/
+     /*border: 1px solid transparent;
+    border-bottom-color: #8dc73e;
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+-webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+box-shadow: 1px 2px 3px rgba(0,0,0,.5);*/
+     /*-webkit-transition: all .4s ease 0s;
+    -moz-transition: all .4s ease 0s;
+    -ms-transition: all .4s ease 0s;
+    -o-transition: all .4s ease 0s;
+    transition: all 0.4s ease 0s;*/
+     }
+ .fldREMARKS
+                 {vertical-align: top; text-align: right;}  
+ .fldREMARKS          {width:  98%;  rows:10; height:300px;  overflow: auto;}
+/*#SubmitHashmal {float:left;
+ background:-webkit-gradient(linear, left top, left bottom, from(#e80c4d), to(#df5757)); 
+
+}*/
+
+#SubmitHashmal, #KLALI, #DC_BTN{
+  background: #34d997;
+  float:left;
+  background-image: -webkit-linear-gradient(top, #34d997, #2b76b8);
+  background-image: -moz-linear-gradient(top, #34d997, #2b76b8);
+  background-image: -ms-linear-gradient(top, #34d997, #2b76b8);
+  background-image: -o-linear-gradient(top, #34d997, #2b76b8);
+  background-image: linear-gradient(to bottom, #34d997, #2b76b8);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  width: 80px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+
+}
+
+#SubmitHashmal:hover, #KLALI:hover, #DC_BTN:hover{
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+
+#str_Notes{
+	border-radius: 10px;
+    float:right;
+}
+
+html, body {height: 90%;
+}
+
+input[type="date"] {
+   height:18px; 
+   border: 1px solid #7D7D7D; 
+   border-radius: 5px;
+   width: 20%;
+   background: #F0F0F0;
+   color: #333;
+   font-size: 15px;
+   padding: 0px;
+   display: inline;
+   float:right;
+}
+input[type="text"] {
+   border: 1px solid #7D7D7D; 
+   border-radius: 5px;
+   padding: 0px;
+   display: inline;
+   float:right;
+}
+.title {
+    border: 0px double #dd4b64;
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 10px;
+    margin: 7px;
+    background-color: #50b3d7;
+    font-weight: bold;
+    font-family: arial;
+    color: black;
+    text-decoration: underline;
+    width: 99%;
+    text-align: center;
+}
+.parameter{
+    font-family:Arial Verdana, Sans-Serif;
+    margin-right: 10px;
+    color:black;
+    width: 85%;
+    display: inline;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+input, textarea {
+    background: #F0F0F0;
+    color: #333;
+    font-size: 15px;
+    padding: 0px;
+    width: 90%;
+    display: inline;
+    float:right;
+}
+.parameter{
+    font-family:Arial Verdana, Sans-Serif;
+    margin-right: 10px;
+    color:black;
+    width: 85%;
+    display: inline;
+    font-size: 16px;
+    font-weight: bold;
+}
+#table th, td, tr  {
+     border: 0px ;
+    padding:0px;
+}
+.floating-box {
+	float:right;
+    height:22%;
+    width: 110%;
+   margin: 0.1%;
+}
+.floating-box2 {
+	float:right;
+    width: 110%;
+    height: 15%;
+   margin: 0.1%;
+}
+.floating-box3 {
+	float:right;
+    width: 110%;
+    height: 44%;
+    margin: 0.1%;
+}
+.floating-box4 {
+    float:right;
+    display:inline-block;
+    width: 110%;
+    height: 10%;
+    margin: 0.1%;
+}
+.floating-box5 {
+	float:right;
+  display:inline-block;
+    width: 110%;
+    height: 7%;
+   margin: 0.1%;
+}
+.sucContentDiv
+{
+	border : 1px double brown;
+    border-radius:20px;
+	direction:rtl;
+    width:90%;
+}
+.one{
+height:100%;
+}
+.four{
+height:25%;
+}
+.three{
+height:50%;
+}
+.fourThree{
+height:28%;
+}
+.details{
+
+border : 1px double pink;
+border-radius:5px;
+	
+}
+
+
+

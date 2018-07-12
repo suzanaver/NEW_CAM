@@ -1,0 +1,607 @@
+﻿@model NEW_CAM.Models.CamKlaliModel
+
+@{
+    ViewBag.Title = "ShowCam";
+
+}
+
+
+<html>
+<head>
+    @*<h2>ShowCam</h2>*@
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script>
+        function getElect(a) {
+            site_names = [a];
+            site_names = JSON.stringify({ 'things': site_names });
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: '/NEW_CAM/NEW_CAM/Home/SaveEntrance',
+                data: site_names,
+                success: function () {
+                    window.location.reload();
+                    $('#result').html('"Submit1Exit()" successfully called.');
+                },
+                failure: function (response) {
+                    $('#result').html(response);
+                }
+            });
+            alert(a);
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById("MNUSITETYPE").disabled = true;
+            if (document.getElementById("GSM_1800").value == "כן") {
+                document.getElementById("GSM_1800").checked = true;
+            }
+
+            if (document.getElementById("GSM_900").value == "כן") {
+                document.getElementById("GSM_900").checked = true;
+            }
+            if (document.getElementById("UMTS_900").value == "כן") {
+                document.getElementById("UMTS_900").checked = true;
+            }
+            if (document.getElementById("UMTS_2100").value == "כן") {
+                document.getElementById("UMTS_2100").checked = true;
+            }
+            if (document.getElementById("LTE_1800").value == "כן") {
+                document.getElementById("LTE_1800").checked = true;
+            }
+            if (document.getElementById("LTE_900").value == "כן") {
+                document.getElementById("LTE_900").checked = true;
+            }
+            if (document.getElementById("LTE_2100").value == "כן") {
+                document.getElementById("LTE_2100").checked = true;
+            }
+            if (document.getElementById("IDEN").value == "כן") {
+                document.getElementById("IDEN").checked = true;
+            }
+            if (document.getElementById("HAS_TRANSMITION_BKP").value == "כן") {
+                document.getElementById("HAS_TRANSMITION_BKP").checked = true;
+            }
+
+            if (document.getElementById("A_24_HOURS").value != "NO") {
+                f_disable("TIMEGENFROM");
+                f_disable("TIMEGENTO");
+            }
+
+     
+            if (document.getElementById("PERMISSION").value != "HGHGH") {
+                document.getElementById('EZOR_HALUKA').readOnly = true;
+                document.getElementById('RATZ_EZOR').readOnly = true;
+                document.getElementById('ACCESS_INSTRUCTIONS').readOnly = true;
+
+            }
+
+            if (document.getElementById("cbk_HOT_CBK").value == "Mirs") {
+                document.getElementById("cbk_HOT_CBK").checked = true;
+            }
+            if (document.getElementById("cbk_PARTNER").value == "Partner") {
+                document.getElementById("cbk_PARTNER").checked = true;
+            }
+            if (document.getElementById("cbk_PELEPHONE").value == "Pelephone") {
+                document.getElementById("cbk_PELEPHONE").checked = true;
+            }
+            if (document.getElementById("cbk_CELLCOM").value == "Cellcom") {
+                document.getElementById("cbk_CELLCOM").checked = true;
+            }
+
+        }
+    </script>
+    <script>
+        //A_24_HOURS
+        window.onchange = function () {
+            document.getElementById("Submit1").style = "background-color: red;";
+            if (document.getElementById("A_24_HOURS").value == "YES") {
+                document.getElementById("TIMEGENTO").value = 1;
+                document.getElementById("TIMEGENTO").Text = "00:00";
+                document.getElementById("TIMEGENFROM").Text = "00:00";
+                document.getElementById("TIMEGENFROM").value = 1;
+            };
+
+            if (document.getElementById("GSM_1800").value == "כן") {
+                document.getElementById("GSM_1800").checked = true;
+            }
+            if (document.getElementById("GSM_900").value == "כן") {
+                document.getElementById("GSM_900").checked = true;
+            }
+            if (document.getElementById("UMTS_900").value == "כן") {
+                document.getElementById("UMTS_900").checked = true;
+            }
+            if (document.getElementById("UMTS_2100").value == "כן") {
+                document.getElementById("UMTS_2100").checked = true;
+            }
+            if (document.getElementById("LTE_1800").value == "כן") {
+                document.getElementById("LTE_1800").checked = true;
+            }
+            if (document.getElementById("LTE_900").value == "כן") {
+                document.getElementById("LTE_900").checked = true;
+            }
+            if (document.getElementById("LTE_2100").value == "כן") {
+                document.getElementById("LTE_2100").checked = true;
+            }
+            if (document.getElementById("IDEN").value == "כן") {
+                document.getElementById("IDEN").checked = true;
+            }
+            //if (document.getElementById("HAS_TRANSMITION_ckb_no").value == "כן") {
+            //    document.getElementById("HAS_TRANSMITION_ckb_no").checked = true;
+            //}
+
+            document.getElementById("HAS_TRANSMITION_BKP").value =
+                     (document.getElementById("HAS_TRANSMITION_BKP").checked == true) ? "קיים בשטח" : "";
+
+            document.getElementById("cbk_HOT_CBK").value =
+             (document.getElementById("cbk_HOT_CBK").checked == true) ? "Mirs" : "";
+
+
+            document.getElementById("cbk_PARTNER").value =
+                  (document.getElementById("cbk_PARTNER").checked == true) ? "Partner" : "";
+            document.getElementById("cbk_PELEPHONE").value =
+                (document.getElementById("cbk_PELEPHONE").checked == true) ? "Pelephone" : "";
+            document.getElementById("cbk_CELLCOM").value =
+                (document.getElementById("cbk_CELLCOM").checked == true) ? "Cellcom" : "";
+
+            if (document.getElementById("A_24_HOURS").value == "NO") {
+                f_enable("TIMEGENFROM");
+                f_enable("TIMEGENTO");
+
+            }
+            else {
+                f_disable("TIMEGENFROM");
+                f_disable("TIMEGENTO");
+            }
+
+        }
+    </script>
+    <script type="text/javascript">
+        function f_disable(obje) {
+            document.getElementById(obje).disabled = true;
+        }
+    </script>
+    <script type="text/javascript">
+        function f_enable(obje) {
+            document.getElementById(obje).disabled = false;
+
+        }
+    </script>
+
+    <link href="~/Content/cam.css" rel="stylesheet" />
+    <!--link href="cam.css" rel="stylesheet" type="text/css" /-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+
+@*@using (@Html.BeginForm("Save", "Klali", FormMethod.Post))*@
+@using (Html.BeginForm())
+{
+    <body>
+       
+        <div id="wrapper" style="float:left;">
+            <div class="userDetailsHeader" style="float:right; height:6%; width:100%;font-size:150%;">
+                    <div class="insert">
+                        @*<div class="insert"><input type="hidden" name="PERMISSION" value="@Model.PERMISSION"/></div>*@
+                        <div class="parameter">תאריך עדכון:</div> <input type="text"  name="modifiedday" id="modifiedday" value="@Model.modifiedday" style="width:40%;" readonly />
+                    </div>
+                <div style="float:right;width:30%;font-size:150%; color:black;text-align: center; ">כללי והנחיות גישה</div>
+                    @*<div style="height:90%;">*@
+                    <button id="Submit1" formaction="Save" formmethod="post">שמור</button>
+                    <button id="Hashmal" formaction="OpenHashmal" formmethod="post">חשמל</button>
+                    @*<button id="DC_btn2" formaction="" formmethod="post">חשמל</button>*@
+                    @*</div>*@
+                </div>
+            <div style="height:94%;">
+                <div class="floating-box">
+                    <div class="sucContentDiv one">
+                        <div class="title" style="text-color:green;">כללי</div>
+                        <div class="details">
+                            <div class="hebrew"><div class="parameter">שם אתר</div><div class="insert"><input type="text" name="pramisSiteName" value="@Model.pramisSiteName" readonly /></div></div>
+                            <div class="hebrew"><div class="parameter">מספר אתר</div><div class="insert"><input id="ddlHAS_24_HOUR_ACCESS" type="text" name="SITE_NAME_ID" value="@Model.SITE_NAME_ID" readonly /></div></div>
+                            <div class="hebrew"><div class="parameter"> כתובת</div><div class="insert"><input type="text" name="TXTADDRESS" value="@Model.TXTADDRESS" readonly /></div></div>
+                            <div class="hebrew"><div class="parameter"> עיר</div><div class="insert"><input type="text" name="TXTCITY" value="@Model.TXTCITY" readonly /></div></div>
+                        </div>
+                    </div>
+                    <div class=" sucContentDiv two">
+                        <div class="title">מרחב</div>
+                        <div class="details">
+                            <div class="hebrew"><div class="parameter"> אזור חלוקה</div><div class="insert"><input type="text" name="EZOR_HALUKA" value="@Model.EZOR_HALUKA" /></div></div>
+                            <div class="hebrew"><div class="parameter"> ר"צ אזור</div><div class="insert"><input type="text" name="RATZ_EZOR" value="@Model.RATZ_EZOR" /></div></div>
+                            <div class="hebrew"><div class="parameter"> טכנאי פוליגון</div><div class="insert">@Html.DropDownListFor(m => @m.TECH_POLY, @Model.SelectionPolyTech, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 185%;" })</div>
+
+                                @*<div class="insert"><input type="text" name="TECH_POLY" value="@Model.TECH_POLY" readonly /></div>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" sucContentDiv three">
+                        <div class="title">תמסורת</div>
+                        <div class="details">
+                            <div class="hebrew"><div class="parameter">ספק תמסורת ראשי</div><div class="insert"><input type="text" name="txtswitch" value="@Model.txtswitch" readonly /></div></div>
+                            <div class="hebrew"><div class="parameter">ספק תמסורת משני</div><div class="insert"><input type="text" name="txtswitchsecundary" value="@Model.txtswitchsecundary" readonly /></div></div>
+                            <div class="hebrew"><div class="parameter"> אתר מזין?</div><div class="insert"><input type="text" name="IsInit" value="@Model.IsInit" readonly /></div></div>
+                            <div class="hebrew">
+                                <div class="parameter">קיים גיבוי תמסורת</div>    
+                                  <div class="insert"> <input type="checkbox" name="HAS_TRANSMITION_BKP" id="HAS_TRANSMITION_BKP" value="@Model.HAS_TRANSMITION_BKP" /></div>       
+                               </div>
+                        </div>
+                    </div>
+                    <div class=" sucContentDiv four">
+                        <div class="title">שת"פ</div>
+                        <div class="details">
+
+                            <div class="hebrew"><div class="parameter">תורן בבעלות</div><div class="insert"><input type="text" name="TXTPOLEOWNERSHIP1" value="@Model.TXTPOLEOWNERSHIP1" readonly /></div></div>
+                            <div>
+                                <div class="parameter">חדר באחריות</div><div class="insert">
+                                    @Html.DropDownList("roomResponsibity", new List<SelectListItem>
+                     {
+                          new SelectListItem {Text= "חחי" ,Value="CHACHI" },
+                          new SelectListItem {Text= "בעל נכס" ,Value="BAAN" },
+                          new SelectListItem {Text= "PHI" ,Value="PHI" },
+                           new SelectListItem {Text= "חחי" ,Value="CHACHI" },
+                        new SelectListItem {Text="סלקום"  ,Value="CELLCOM" },
+                         new SelectListItem {Text= "פלאפון",Value="PELEPHONE"},
+                          new SelectListItem {Text= "" ,Value="" },
+                      }, new { Style = "width:185%;height:20px;" })<br>
+                                </div>
+                            </div>
+                            <div class="hebrew">
+                                <div class="parameter">גורם מתארח</div> @Html.TextArea("HOSTED", Model.HOSTED, 5, 4, new { Style = "margin-right:4.2cm; width:45%;height:60px" })
+                            </div>
+                            <div style="display:none" class="hebrew">
+                                <div class="parameter">חברות שכנות</div><div class="insert"></div>
+                                <table id="table" style="width:100%;">
+                                    <tr>
+                                        <td>    <div class="english"><div class="parameter">הוט מובייל</div><div class="insert"><input type="checkbox" name="cbk_HOT_CBK" id="cbk_HOT_CBK" value="@Model.cbk_HOT_CBK"></div></div></td>
+                                        <td>  <div class="english"><div class="parameter">פרטנר</div><div class="insert"><input type="checkbox" name="cbk_PARTNER" id="cbk_PARTNER" value="@Model.cbk_PARTNER"></div></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="english"><div class="parameter">פלאפון</div><div class="insert"><input type="checkbox" name="cbk_PELEPHONE" id="cbk_PELEPHONE" value="@Model.cbk_PELEPHONE" /></div></div></td>
+                                        <td><div class="english"><div class="parameter">סלקום</div><div class="insert"><input type="checkbox" name="cbk_CELLCOM" id="cbk_CELLCOM" value="@Model.cbk_CELLCOM"></div></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-box2">
+                    <div class=" sucContentDiv twoOne">
+                        <div class="title">הנחיות גישה</div>
+                        <div class="details">
+                            <div class="hebrew">
+                                <div class="parameter">רגישות</div><div class="insert" id="sensitivity">
+
+                                    @Html.DropDownList("CHRSITESENSITIVE", new List<SelectListItem>
+                     {
+                        new SelectListItem {Text= "רגיש" ,Value="YES" },
+                         new SelectListItem {Text= "לא נבחר",Value=""},
+                        new SelectListItem {Text= "רגיל",Value="NO", },
+                      })<br>
+                                </div>
+                            </div>
+                            <div class="hebrew">
+                                <div class="parameter">נדרש לתאם</div><div style="width:60px;" class="insert" id="NEEDS_COORDINATE">
+
+                                    @Html.DropDownList("CHRSITENEEDCOORD", new List<SelectListItem>
+                     {
+                        new SelectListItem {Text= "כן" ,Value="YES" },
+                         new SelectListItem {Text= "לא נבחר",Value=""},
+                        new SelectListItem {Text= "לא",Value="NO", },
+                      })<br>
+                                </div>
+                            </div>
+
+                            <div class="hebrew">
+                                <div class="parameter">מפתח או שלט</div><div class="insert" id="key">
+                                    @Html.DropDownList("chrSiteNeedKey", new List<SelectListItem>
+                     {
+                        new SelectListItem {Text= "כן" ,Value="YES" },
+                         new SelectListItem {Text= "לא נבחר",Value=""},
+                        new SelectListItem {Text= "לא",Value="NO", },
+                      })<br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="parameter">נדרש ליווי בטחוני</div><div class="insert">
+                                    @Html.DropDownList("CHRSITESECURITY", new List<SelectListItem>
+                     {
+                        new SelectListItem {Text= "כן" ,Value="YES" },
+                         new SelectListItem {Text= "לא נבחר",Value=""},
+                        new SelectListItem {Text= "לא",Value="NO", },
+                      })
+                                </div>
+                            </div>
+                            <div>
+                                <div class="parameter">גישה מוגבלת לרכב שטח</div><div class="insert">
+                                    @Html.DropDownList("CHRSITECARRESTR", new List<SelectListItem>
+                     {
+                        new SelectListItem {Text= "כן" ,Value="YES" },
+                         new SelectListItem {Text= "לא נבחר",Value=""},
+                        new SelectListItem {Text= "לא",Value="NO", },
+                      })
+                                </div>
+                            </div>
+                            <div><div class="parameter">הערות - כניסה לאתר</div> @Html.TextArea("CHRSITEENTRCODE", Model.CHRSITEENTRCODE, 3, 10, new { Style = "width:95%;height:65px" })</div>
+
+                        </div>
+                    </div>
+                    <div class=" sucContentDiv twoTwo">
+                        <div class="title">אנשי קשר</div>
+                        <div class="details">
+
+                            <table id="table" style="width:100%;">
+                                <tr style="height:50px;">
+                                    <th><b>איש קשר</b></th>
+                                    <th><b>טלפון</b></th>
+                                    <th><b>טלפון 2</b></th>
+                                </tr>
+
+                                @for (int i = 0; i < Model.CamContactList.Count; i++)
+                                {
+                                    <tr>
+                                        <td>   @Html.TextBoxFor(modelItem => modelItem.CamContactList[i].contact1, new { Style = "width:90%; margin: 5px 4px 4px 0" })</td>
+                                        <td>   @Html.TextBoxFor(modelItem => modelItem.CamContactList[i].txtphonecellular, new { Style = "width:90%;margin: 5px 4px 4px 0" })</td>
+                                        <td>   @Html.TextBoxFor(modelItem => modelItem.CamContactList[i].txtphonecellular2, new { Style = "width:90%;margin: 5px 4px 4px 0" })</td>
+                                    </tr>
+                                }
+                            </table>
+                            @for (int i = 0; i < Model.CamContactList.Count; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    <div>
+                                        @Html.TextAreaFor(modelItem => modelItem.CamContactList[i].remarks, 3, 10, new { Style = "width:97%;height:50px" })
+
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class=" sucContentDiv twoThree">
+                        <div class="title">סיפור דרך לאתר</div>
+                        <div>
+                            @Html.TextArea("ACCESS_INSTRUCTIONS", Model.ACCESS_INSTRUCTIONS, 3, 10, new { Style = "width:98%;height:100px" })
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-box3">
+                    <div class=" sucContentDiv threeOne">
+                        <div class="title">זמני גישה</div>
+                        <div class="details">
+                            <div class="hebrew">
+                                <div class="parameter">24/7</div><div id="a_24_hours" class="insert">
+                                    @Html.DropDownList("A_24_HOURS", new List<SelectListItem>
+                     {
+                        new SelectListItem {Text= "כן" ,Value="YES" },
+                         new SelectListItem {Text= "לא נבחר",Value=""},
+                        new SelectListItem {Text= "לא",Value="NO", },
+                      })<br>
+                                </div>
+                            </div>
+                            <div style="font-size:20px;font-weight: bold;color:black;"><u>ימים א-ה:</u></div>
+                            <div class="hebrew">
+                                <div class="parameter">משעה</div><div id="FROM" class="insert">
+                                    @Html.DropDownList("TIMEGENFROM", new List<SelectListItem>
+                     {
+                        new SelectListItem { Value="00:00", Text="00:00" },
+                         new SelectListItem{  Value="01:00", Text="01:00"},
+                        new SelectListItem {Value="02:00" ,Text="02:00" ,},
+                        new SelectListItem { Value="03:00", Text="03:00" },
+                         new SelectListItem{  Value="04:00", Text="04:00"},
+                        new SelectListItem {Value="05:00" ,Text="05:00" ,},
+
+                         new SelectListItem{  Value="06:00", Text="06:00"},
+                        new SelectListItem {Value="07:00" ,Text="07:00" ,},
+
+                         new SelectListItem{  Value="08:00", Text="08:00"},
+                        new SelectListItem {Value="09:00" ,Text="09:00" ,},
+
+                        new SelectListItem {Value="10:00" ,Text="10:00" ,},
+
+                         new SelectListItem{  Value="11:00", Text="11:00"},
+                        new SelectListItem {Value="12:00" ,Text="12:00" ,},
+
+                         new SelectListItem{  Value="13:00", Text="13:00"},
+                        new SelectListItem {Value="14:00" ,Text="14:00" ,},
+
+                         new SelectListItem{  Value="15:00", Text="15:00"},
+                        new SelectListItem {Value="16:00" ,Text="16:00" ,},
+
+                        new SelectListItem {Value="17:00" ,Text="17:00" ,},
+
+                         new SelectListItem{  Value="18:00", Text="18:00"},
+                        new SelectListItem {Value="19:00" ,Text="19:00" ,},
+
+                         new SelectListItem{  Value="20:00", Text="20:00"},
+                        new SelectListItem {Value="21:00" ,Text="21:00" ,},
+                        new SelectListItem {Value="22:00" ,Text="22:00" ,},
+
+                         new SelectListItem{  Value="23:00", Text="23:00"},
+                      })<br>
+
+                                    @*<input type="text" name="TIMEGENFROM" value="@Model.TIMEGENFROM" />*@
+                                </div>
+                            </div>
+                            <div class="hebrew">
+                                <div class="parameter">עד שעה</div><div class="insert">
+                                    @Html.DropDownList("TIMEGENTO", new List<SelectListItem>
+                     {
+                        new SelectListItem { Value="00:00", Text="00:00" },
+                         new SelectListItem{  Value="01:00", Text="01:00"},
+                        new SelectListItem {Value="02:00" ,Text="02:00" ,},
+                        new SelectListItem { Value="03:00", Text="03:00" },
+                         new SelectListItem{  Value="04:00", Text="04:00"},
+                        new SelectListItem {Value="05:00" ,Text="05:00" ,},
+
+                         new SelectListItem{  Value="06:00", Text="06:00"},
+                        new SelectListItem {Value="07:00" ,Text="07:00" ,},
+
+                         new SelectListItem{  Value="08:00", Text="08:00"},
+                        new SelectListItem {Value="09:00" ,Text="09:00" ,},
+
+                        new SelectListItem {Value ="10:00" ,Text="10:00" ,},
+
+                         new SelectListItem{  Value="11:00", Text="11:00"},
+                        new SelectListItem {Value="12:00" ,Text="12:00" ,},
+
+                         new SelectListItem{  Value="13:00", Text="13:00"},
+                        new SelectListItem {Value="14:00" ,Text="14:00" ,},
+
+                         new SelectListItem{  Value="15:00", Text="15:00"},
+                        new SelectListItem {Value="16:00" ,Text="16:00" ,},
+
+                        new SelectListItem {Value="17:00" ,Text="17:00" ,},
+
+                         new SelectListItem{  Value="18:00", Text="18:00"},
+                        new SelectListItem {Value="19:00" ,Text="19:00" ,},
+
+                         new SelectListItem{  Value="20:00", Text="20:00"},
+                        new SelectListItem {Value="21:00" ,Text="21:00" ,},
+                        new SelectListItem {Value="22:00" ,Text="22:00" ,},
+
+                         new SelectListItem{  Value="23:00", Text="23:00"},
+                      })<br>
+                                    @*<input type="text" name="TIMEGENTO" value="@Model.TIMEGENTO" />*@
+                                </div>
+                            </div>
+                            @*                <div><div class="parameter">שעות חריגות?</div><div class="insert">
+                                  @Html.DropDownList("CKBTECH24", new List<SelectListItem>
+                                   {
+                                      new SelectListItem {Text= "כן" ,Value="Yes" },
+                                       new SelectListItem {Text= "לא בשבתות וחגים" ,Value="Only on weekdays excluding holidays" },
+                                       new SelectListItem {Text= "לא נבחר",Value=""},
+                                      new SelectListItem {Text= "לא",Value="No", },
+                                    })<br>
+                                </div></div>*@
+                            <div><div class="parameter">הערות גישה</div> @Html.TextArea("TIME_REMARKS", Model.TIME_REMARKS, 3, 10, new { Style = "width:95%;height:65px" })</div>
+                            @*	<div class="hebrew"><div class="parameter">שעות חריגות</div><div class="insert"><input type="text" name="CKBTECH24" value="@Model.CKBTECH24" /></div></div>*@
+                        </div>
+                    </div>
+                    <div class=" sucContentDiv threeTwo">
+                        <div class="title">נתונים על האתר</div>
+                        <div class="details">
+                            <div>
+                                <div class="parameter">מקור הזנת חשמל</div><div class="insert">
+                                    @Html.DropDownList("ELECTRICITY_SOURCE", new List<SelectListItem>
+                     {
+                          new SelectListItem {Text= "לא נבחר" ,Value="" },
+                        new SelectListItem {Text="חחי"  ,Value="חחי" },
+                         new SelectListItem {Text= "בעל נכס",Value="בעל נכס"},
+                        new SelectListItem {Text= "גנרטור",Value="גנרטור" },
+                          new SelectListItem {Text= "הוט מובייל",Value="הוט מובייל", },
+                      })<br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="parameter">גודל הזנה</div><div class="insert">
+                                    @Html.DropDownList("SUPPLY_SIZE", new List<SelectListItem>
+                     {
+                         new SelectListItem {Text= "לא נבחר" ,Value="" },
+                        new SelectListItem {Text= "3*16" ,Value="3*16" },
+                         new SelectListItem {Text= "3*25",Value="3*25"},
+                        new SelectListItem {Text= "3",Value="3"},
+                        new SelectListItem {Text= "3*125",Value="3*125"},
+                        new SelectListItem {Text= "2*(3*25)",Value="2*(3*25)"},
+                         new SelectListItem {Text= "2*10",Value="2*10"},
+                        new SelectListItem {Text= "3*40",Value="3*40", },
+                      })<br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="parameter">לחבר גנרטור?</div><div class="insert">
+                                    @Html.DropDownList("NEEDS_GENERATOR", new List<SelectListItem>
+                     {
+                        new SelectListItem {Text= "כן" ,Value="כן" },
+                         new SelectListItem {Text= "לא נבחר",Value=""},
+                        new SelectListItem {Text= "לא",Value="לא", },
+                      })<br>
+                                </div>
+                            </div>
+                            <div class="hebrew">
+                                <div class="parameter">סוג מערכת כוח</div><div class="insert">
+                                    @Html.DropDownList("MMARECHET_KOAH_NUM", new List<SelectListItem>
+                     {
+                        new SelectListItem {Text= "eltek" ,Value="eltek" },
+                         new SelectListItem {Text= "לא נבחר",Value=""},
+                        new SelectListItem {Text= "PS48",Value="PS48", },
+                           new SelectListItem {Text= "1U",Value="1U", },
+                      })<br>
+                                </div>
+                            </div>
+                            <div class="hebrew">
+                                <div class="parameter">סוג אתר</div><div class="insert">
+                                    @Html.DropDownList("MNUSITETYPE", new List<SelectListItem>
+                     {
+                          new SelectListItem {Text= "לא נבחר" ,Value="" },
+                        new SelectListItem {Text= "ID-R" ,Value="ID-R" },
+                         new SelectListItem {Text= "SL",Value="SL"},
+                        new SelectListItem {Text= "OD",Value="OD", },
+                      }) <br>
+                                </div>
+                            </div>
+                            <div class="hebrew">
+                                <div class="parameter">סוג מבנה</div><div class="insert">
+                                    @Html.DropDownList("MNUSTRUCTURETYPE", new List<SelectListItem>
+                     {
+                        new SelectListItem {Text= "לא נבחר" ,Value="" },
+                        new SelectListItem {Text= "od" ,Value="od" },
+                        new SelectListItem {Text= "לקוח" ,Value="לקוח" },
+                        new SelectListItem {Text= "חדר סלקום" ,Value="חדר סלקום" },
+                        new SelectListItem {Text= "MONO",Value="MONO"},
+                        new SelectListItem {Text= "UL-ID",Value="UL-ID"},
+                        new SelectListItem {Text= "MICRO 3308",Value="MICRO 3308"},
+                        new SelectListItem {Text= "OD",Value="OD"},
+                        new SelectListItem {Text= "ארון תמא",Value="ארון תמא", },
+                      })<br>
+                                </div>
+                            </div>
+                            <div class="hebrew"><div class="parameter">מס SIM</div><div class="insert"><input type="text" name="SIM_NUM" value="@Model.SIM_NUM" /></div></div>@*<div style="direction:rtl; font-size:18px; margin-right:2%"><button onclick="getElect(@Model.SIM_NUM)">בדוק צריכה</button></div>*@
+                            <div class="hebrew"><div class="parameter">מס מונה</div><div class="insert"><input type="text" name="MONE_NUM" value="@Model.MONE_NUM" /></div></div>
+                            <div class="hebrew"><div class="parameter">סוג תורן</div><div class="insert"><input type="text" name="mnuPoleType" value="@Model.mnuPoleType" readonly /></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-box4">
+                    <div class=" sucContentDiv fourTwo">
+                        <div class="title">נתוני רדיו</div>
+                        <div class="details">
+                            <div class="english" style="line-height: 1px; direction:ltr; margin-left:15px;"><div class="parameter">RNC</div><div class="insert"><input type="text" name="Name" value="@Model.RNC_ID_" readonly /></div></div>
+                            <div class="english" style="line-height: 1px; direction:ltr; margin-left:15px;"><div class="parameter">HDBSC</div><div class="insert"><input type="text" name="Name" value="@Model.HDBSC" readonly /></div></div>
+                            <div class="english" style="line-height: 10px; direction:ltr; margin-left:15px;"><div class="parameter">MME</div><div class="insert"><input type="text" name="Name" value="@Model.MME" readonly /></div></div>
+                            <div class="insert"><input type="text" id="PERMISSION" name="PERMISSION" value="@Model.PERMISSION" /></div>
+                        </div>
+                    </div>
+                    <div class=" sucContentDiv fourThree">
+                        <div class="title">פעילות באתר</div>
+                        <div class="details">
+                            <div class="hebrew"><div class="parameter">תקלות פתוחות </div><div class="insert"><input type="text" name="Name" value="@Model.openIncidents" readonly /></div></div>
+                            <div class="hebrew"><div class="parameter">טכנאי אחרון באתר</div><div class="insert"><input type="text" name="Name" value="@Model.lastTechAtSite" readonly /></div></div>
+                        </div>
+                        <div>
+                            <a style="font-size:20px; font-family:Arial Verdana, Sans-Serif;" href="@Model.TXTCURRENTRFREPORT">לכניסה לדוח רדיו אחרון</a>
+                        </div>
+                    </div>
+                    <div class="sucContentDiv fourfour">
+                        <div class="title" style="direction:rtl" ;>טכנולוגיה משדרת</div>
+                        <div class="details">
+                            <div class="english"><div class="parameter">GSM 1800</div><div class="insert"><input type="checkbox" name="GSM_1800" id="GSM_1800" value="@Model.GSM_1800" onclick="this.checked = !this.checked;" /></div></div>
+                            <div class="english"><div class="parameter">GSM 900</div><div class="insert"><input type="checkbox" name="GSM_900" id="GSM_900" value="@Model.GSM_900" onclick="this.checked = !this.checked;" /></div></div>
+                            <div class="english"><div class="parameter">UMTS 900</div><div class="insert"><input type="checkbox" name="UMTS_900" id="UMTS_900" value="@Model.UMTS_900" onclick="this.checked = !this.checked;" /></div></div>
+                            <div class="english"><div class="parameter">UMTS 2100</div><div class="insert"><input type="checkbox" name="UMTS_2100" id="UMTS_2100" value="@Model.UMTS_2100" onclick="this.checked = !this.checked;"></div></div>
+                            <div class="english"><div class="parameter">LTE 1800</div><div class="insert"><input type="checkbox" name="LTE_1800" id="LTE_1800" value="@Model.LTE_1800" onclick="this.checked = !this.checked;"></div></div>
+                            <div class="english"><div class="parameter">LTE 900</div><div class="insert"><input type="checkbox" name="LTE_900" id="LTE_900" value="@Model.LTE_900" onclick="this.checked = !this.checked;"></div></div>
+                            <div class="english"><div class="parameter">LTE 2100</div><div class="insert"><input type="checkbox" name="LTE_2100" id="LTE_2100" value="@Model.LTE_2100" onclick="this.checked = !this.checked;"></div></div>
+                            <div class="english"><div class="parameter">IDEN</div><div class="insert"><input type="checkbox" name="IDEN" id="IDEN" value="@Model.IDEN" onclick="this.checked = !this.checked;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+}
+
+</html>

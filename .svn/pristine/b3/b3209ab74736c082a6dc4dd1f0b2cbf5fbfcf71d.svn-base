@@ -1,0 +1,5 @@
+﻿@{
+    ViewBag.Title = "AirCondition";
+}
+
+<h2>AirCondition</h2>

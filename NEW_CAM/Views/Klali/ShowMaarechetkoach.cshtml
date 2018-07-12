@@ -1,0 +1,566 @@
+﻿@model NEW_CAM.Models.CamMaarechetkoachModel
+@{
+    ViewBag.Title = "ShowMaarechetkoach";
+}
+
+<html>
+<head>
+    <link href="~/Content/cam_MaarechetKoach1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+</head>
+@using (Html.BeginForm())
+{
+    <body>
+        <div id="wrapper" style="float:left;">
+            <div class="userDetailsHeader" style="float:right; height:6%; width:100%;font-size:150%;">
+                <div style="float:right;width:70%;font-size:150%; color:black;text-align: center; ">מערכות כח DC</div>
+                <div style="height:90%;">
+                    <button id="SubmitMaarechetKoah" formaction="UpdateMaarechetkoachModel" formmethod="post">שמור</button>
+                    <button id="Cam" formaction="OpenCamFromMaarechetKoah" formmethod="post">כללי</button>
+                    @*<button id="hashmalbtn" formaction="OpenCam" formmethod="post">חשמל</button>*@
+                </div>
+            </div>
+            <div style="height:94%;">
+                <div class="floating-box">
+                    <div class=" sucContentDiv two">
+                        <div class="title" style="text-color:green;">
+                            מערכת כח באתר 1
+                        </div>
+                        <div class="details">
+                            <table id="table" style="width:100%;">
+                                <tr style="width:auto">
+                                    <td style="width:10%"><div class="hebrew"><div class="parameter">יעוד מערכת כח</div></div></td>
+                                    <td style="width:12%"><div class="hebrew"><div class="parameter">סוג מערכת כח</div></div></td>
+                                    <td style="width:17%"><div class="hebrew"><div class="parameter">גודל חיבור AC מע' הכוח</div></div></td>
+                                    <td style="width:12%"><div class="hebrew"><div class="parameter">כמות מיישרים</div></div></td>
+                                    <td style="width:20%"><div class="hebrew"><div class="parameter">סה"כ צריכת זרם מרבית</div></div></td>
+                                    <td style="width:13%"><div class="hebrew"><div class="parameter">סוג מצבר</div></div></td>
+                                    <td colspan="3" style="width:10%"><div class="hebrew"><div class="parameter">גיל מצברים</div></div></td>                            
+                                </tr>
+                                <tr style="width:auto">
+                                    <td style="width:5%">
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_Yaud_First, @Model.Yaud, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:60%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_sug_First, @Model.sug, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_godelmafsek_First, @Model.godelmafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_kamutmeyashrim_First, @Model.kamutmeyashrim, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td><div class="insert"><input type="text" name="str_ztichatzerem_First" value="@Model.str_ztichatzerem_First" style="width: 55%; border: 1px solid #7D7D7D; border-radius: 5px;" /></div></td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_SugMzber_First, @Model.SugMzber, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 90%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td style="width:5%">
+                                        @Html.DropDownListFor(m => @m.str_Year_First, @Model.Year, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 100%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                    </td>
+                                    <td style="width:6%">
+                                        @Html.DropDownListFor(m => @m.str_Month_First, @Model.Month, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 100%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                    </td>
+                                    <td >
+                                    </td>
+                                 </tr>
+                                <tr style="width:auto">
+                                    <td style="width:10%"><div class="hebrew"><div class="parameter">כמות מצברים</div></div></td>
+                                    <td style="width:12%">
+                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetOne_First, @Model.KamutMazberim, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                    </td>
+                                    <td  style="width:13%" ><div class="hebrew"><div class="parameter" style="font-size: 15px;">קיים עוקף LVD לתמסורת</div></div></td>
+                                    <td style="width:12%">
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_kayamLVD_First, @Model.kayamLVD, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <tr>
+                                        <td style="width:10%"><div class="hebrew"><div class="parameter" style="font-size: 15px;">חיבור צרכנים למערכת</div></div></td>
+                                    <td colspan="8">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetOne_First, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetTwo_First, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetThree_First, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetFoor_First, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetFive_First, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetSix_First, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetSeven_First, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetEight_First, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                               </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                        </tr>
+                                <tr style="width:auto">   
+                                    <td style="width:15%"><div class="hebrew"><div class="parameter">גודל מפסק DC</div></div></td>
+                                    <td colspan="8">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekOne_First, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsektwo_First, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekthree_First, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekFoor_First, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekFive_First, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekSix_First, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekSeven_First, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekEight_First, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-box">
+                    <div class=" sucContentDiv two">
+                        <div class="title" style="text-color:green;">
+                            מערכת כח באתר 2
+                        </div>
+                        <div class="details">
+                            <table id="table" style="width:100%;">
+                                <tr style="width:auto">
+                                    <td style="width:10%"><div class="hebrew"><div class="parameter">יעוד מערכת כח</div></div></td>
+                                    <td style="width:12%"><div class="hebrew"><div class="parameter">סוג מערכת כח</div></div></td>
+                                    <td style="width:17%"><div class="hebrew"><div class="parameter">גודל חיבור AC מע' הכוח</div></div></td>
+                                    <td style="width:12%"><div class="hebrew"><div class="parameter">כמות מיישרים</div></div></td>
+                                    <td style="width:20%"><div class="hebrew"><div class="parameter">סה"כ צריכת זרם מרבית</div></div></td>
+                                    <td style="width:13%"><div class="hebrew"><div class="parameter">סוג מצבר</div></div></td>
+                                    <td colspan="3" style="width:10%"><div class="hebrew"><div class="parameter">גיל מצברים</div></div></td>
+                                </tr>
+                                <tr style="width:auto">
+                                    <td style="width:5%">
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_Yaud_Second, @Model.Yaud, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:60%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_sug_Second, @Model.sug, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_godelmafsek_Second, @Model.godelmafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_kamutmeyashrim_Second, @Model.kamutmeyashrim, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td><div class="insert"><input type="text" name="str_ztichatzerem_Second" value="@Model.str_ztichatzerem_Second" style="width: 55%; border: 1px solid #7D7D7D; border-radius: 5px;" /></div></td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_SugMazber_Second, @Model.SugMzber, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 90%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td style="width:5%">
+                                        @Html.DropDownListFor(m => @m.str_Month_Second, @Model.Month, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 100%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                    </td>
+                                    <td style="width:6%">
+                                        @Html.DropDownListFor(m => @m.str_Year_Second, @Model.Year, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 100%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr style="width:auto">
+                                    <td style="width:10%"><div class="hebrew"><div class="parameter">כמות מצברים</div></div></td>
+                                    <td style="width:12%">
+                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetOne_Second, @Model.KamutMazberim, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                    </td>
+                                    <td style="width:13%"><div class="hebrew"><div class="parameter" style="font-size: 15px;">קיים עוקף LVD לתמסורת</div></div></td>
+                                    <td style="width:12%">
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_kayamLVD_Second, @Model.kayamLVD, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                <tr>
+                                    <td style="width:10%"><div class="hebrew"><div class="parameter" style="font-size: 15px;">חיבור צרכנים למערכת</div></div></td>
+                                    <td colspan="8">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetOne_Second, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetTwo_Second, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetThree_Second, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetFoor_Second, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetFive_Second, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetSix_Second, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetSeven_Second, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetEight_Second, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr style="width:auto">
+                                    <td style="width:15%"><div class="hebrew"><div class="parameter">גודל מפסק DC</div></div></td>
+                                    <td colspan="8">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekOne_Second, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsektwo_Second, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekthree_Second, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekFoor_Second, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekFive_Second, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekSix_Second, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekSeven_Second, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekEight_Second, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-box">
+                    <div class=" sucContentDiv two">
+                        <div class="title" style="text-color:green;">
+                            מערכת כח באתר 3
+                        </div>
+                        <div class="details">
+                            <table id="table" style="width:100%;">
+                                <tr style="width:auto">
+                                    <td style="width:10%"><div class="hebrew"><div class="parameter">יעוד מערכת כח</div></div></td>
+                                    <td style="width:12%"><div class="hebrew"><div class="parameter">סוג מערכת כח</div></div></td>
+                                    <td style="width:17%"><div class="hebrew"><div class="parameter">גודל חיבור AC מע' הכוח</div></div></td>
+                                    <td style="width:12%"><div class="hebrew"><div class="parameter">כמות מיישרים</div></div></td>
+                                    <td style="width:20%"><div class="hebrew"><div class="parameter">סה"כ צריכת זרם מרבית</div></div></td>
+                                    <td style="width:13%"><div class="hebrew"><div class="parameter">סוג מצבר</div></div></td>
+                                    <td colspan="3" style="width:10%"><div class="hebrew"><div class="parameter">גיל מצברים</div></div></td>
+                                </tr>
+                                <tr style="width:auto">
+                                    <td style="width:5%">
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_Yaud_Third, @Model.Yaud, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:60%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_sug_Third, @Model.sug, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_godelmafsek_Third, @Model.godelmafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_kamutmeyashrim_Third, @Model.kamutmeyashrim, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td><div class="insert"><input type="text" name="str_ztichatzerem_Third" value="@Model.str_ztichatzerem_Third" style="width: 55%; border: 1px solid #7D7D7D; border-radius: 5px;" /></div></td>
+                                    <td>
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_SugMazber_Third, @Model.SugMzber, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 90%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                    <td style="width:5%">
+                                        @Html.DropDownListFor(m => @m.str_Year_Third, @Model.Year, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 100%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                    </td>
+                                    <td style="width:6%">
+                                        @Html.DropDownListFor(m => @m.str_Month_Third, @Model.Month, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 100%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr style="width:auto">
+                                    <td style="width:10%"><div class="hebrew"><div class="parameter">כמות מצברים</div></div></td>
+                                    <td style="width:12%">
+                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetOne_Third, @Model.KamutMazberim, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                    </td>
+                                    <td style="width:13%"><div class="hebrew"><div class="parameter" style="font-size: 15px;">קיים עוקף LVD לתמסורת</div></div></td>
+                                    <td style="width:12%">
+                                        <div class="insert">
+                                            @Html.DropDownListFor(m => @m.str_kayamLVD_Third, @Model.kayamLVD, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                        </div>
+                                    </td>
+                                <tr>
+                                    <td style="width:10%"><div class="hebrew"><div class="parameter" style="font-size: 15px;">חיבור צרכנים למערכת</div></div></td>
+                                    <td colspan="8">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetOne_Third, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetTwo_Third, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetThree_Third, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetFoor_Third, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetFive_Third, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetSix_Third, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetSeven_Third, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_HiburLeMaarecetEight_Third, @Model.HiburLeMaarecet, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+
+                                        </table>
+
+                                    </td>
+                                </tr>
+
+
+                                <tr style="width:auto">
+                                    <td style="width:15%"><div class="hebrew"><div class="parameter">גודל מפסק DC</div></div></td>
+
+                                    <td colspan="8">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekOne_Third, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsektwo_Third, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekthree_Third, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekFoor_Third, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekFive_Third, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekSix_Third, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekSeven_Third, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width:80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="insert">
+                                                        @Html.DropDownListFor(m => @m.str_GodelMafsekEight_Third, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 80%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-box5">
+                    <div class=" sucContentDiv two">
+                        <div class="details">
+                            <table id="table" style="width:100%;">
+                                <tr>
+                                    <td style="width:25%;"><div class="hebrew"><div class="parameter">תאריך ביקורת DC אחרונה</div></div></td>
+                                    <td style="width:50%">
+                                        <div class="insert">
+                                            <input type="date" name="str_TaarihBikoretAC" id="str_TaarihBikoret_AC" value="@Model.str_TaarihBikoret_AC" data-date-inline-picker="true" style="width:30%" />
+                                        </div>
+                                    </td>
+                                    <td style="width:20%;">
+                                        <div class="insert"><input type="hidden" name="SITE_NAME_Maarechet" value="@Model.SITE_NAME_Maarechet" style=" margin-right:4.2cm; width:20%; float:right;" /></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-box4">
+                    <div class=" sucContentDiv two">
+                        <div class="details">
+                            <table id="table" style="width:100%;">
+                                <tr>
+                                    <td style="width:15%;"><div class="hebrew"><div class="parameter">הערות</div></div></td>
+                                    <td style="width:70%">
+                                        <div class="hebrew">
+                                            @Html.TextArea("str_Notes", Model.str_Notes_maarechet, 5, 4, new { id = "str_Notes", Style = "margin-left:4.2cm; width:80%;height:30px;" })
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+}
+</html>

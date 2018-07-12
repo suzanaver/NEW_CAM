@@ -1,0 +1,328 @@
+﻿@model NEW_CAM.Models.CamHashmalModel
+@{
+    ViewBag.Title = "ShowHashmal";
+}
+
+<html>
+<head>
+    <link href="~/Content/cam_hashmal1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+</head>
+@using (Html.BeginForm())
+{
+    <body>
+        <div id="wrapper" style="float:left;">
+                <div class="userDetailsHeader" style="float:right; height:6%; width:100%;font-size:150%;">
+                    <div style="float:right;width:70%;font-size:150%; color:black;text-align: center; ">חשמל</div>
+                    <div style="height:90%;">   
+                        <button id="SubmitHashmal" formaction="SaveHashmal" formmethod="post">שמור</button>
+                        <button id="KLALI" formaction="OpenCam" formmethod="post">כללי</button>
+                        <button id="DC_BTN" formaction="" formmethod="post">DC</button>
+                    </div>
+                </div>
+                <div style="height:94%;">
+                    <div class="floating-box">
+                        <div class=" sucContentDiv two">
+                            <div class="title" style="text-color:green;">AC הזנה חיצונית</div>
+                            <div class="details">
+                                <table id="table" style="width:100%;">
+                                    <tr style="width:auto">
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">מקור הזנת חשמל</div></div></td>
+                                        <td style="width:20%"><div class="hebrew"><div class="parameter">גודל מפסק הזנה</div></div></td>
+                                        <td style="width:20%"><div class="hebrew"><div class="parameter">קריאת מונה מרחוק</div></div></td>
+                                        <td style="width:10%"><div class="hebrew"><div class="parameter">סוג מונה</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">מספר מונה</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">מספר חוזה</div></div></td>
+                                    </tr>
+                                    <tr style="width:auto">
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_MakorHazanatHashmal, @Model.MakorHazanatHashmal, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 55%; border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GodelMafsek, @Model.GodelMafsek, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 55%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_KriatMoneMerahok, @Model.KriatMoneMerahok, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 40%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_SugMone_HazanaHizonit, @Model.SugMone, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 75%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" name="str_MisparMone_HazanaHizonit" value="@Model.str_MisparMone_HazanaHizonit" style="width: 55%;" /></div></td>
+                                        <td><div class="insert"><input type="text" name="str_MisparHoze_HazanaHizonit" value="@Model.str_MisparHoze_HazanaHizonit" style="width: 55%;" /></div></td>
+
+                                    </tr>
+                                    <tr style="width:auto">
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">קיים שת"פ חשמל</div></div></td>
+                                        <td style="width:20%"><div class="hebrew"><div class="parameter">מיקום מא"ז ראשי חיצוני</div></div></td>
+                                    </tr>
+                                    <tr style="width:auto">
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_kaiamshataphashmal, @Model.YesNo, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 55%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td colspan="4">
+                                            <div class="insert"><input type="text" name="str_MikumMaazHizoniRashi" value="@Model.str_MikumMaazHizoniRashi" style="width: 70%;" /></div>
+                                        </td>
+                                        <td><div class="insert"><input id="ddlHAS_24_HOUR_ACCESS" type="hidden" name="SITE_NAME_ID" value="@Model.SITE_NAME_ID" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-box2">
+                        <div class=" sucContentDiv two">
+                            <div class="title" style="text-color:green;">AC הזנה בחדר</div>
+                            <div class="details">
+                                <table id="table" style="width:100%;">
+                                    <tr style="width:auto">
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">סוג לוח חשמל באתר</div></div></td>
+                                        <td style="width:20%"><div class="hebrew"><div class="parameter">גודל מפסק ראשי בחדר</div></div></td>
+                                        <td style="width:10%"><div class="hebrew"><div class="parameter">סוג מונה</div></div></td>
+                                        <td style="width:10%"><div class="hebrew"><div class="parameter">מספר מונה</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">מחובר לקריאה מרחוק</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">ניתן לחבר גנרטור</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">סוג שקע גנרטור</div></div></td>
+                                    </tr>
+                                    <tr style="width:auto">
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_SugLyahHashmalBeAtar, @Model.SugLyahHashmalBeAtar, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 60%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GodelMafsekRashi, @Model.GodelMafsekRashi, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 60%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_SugMone_HazanaBeHeder, @Model.SugMone, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 75%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" name="str_MisparMone_HazanaBeHeder" value="@Model.str_MisparMone_HazanaBeHeder" style="width: 70%;" /></div></td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_MehubarLekriaMerahok, @Model.YesNo, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 40%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                         <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_NitalLehaberGenerator, @Model.YesNo, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 40%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_SugShekaKayam, @Model.SugShekaKayam, String.Empty, new { @class = "form-control", onchange = "GetOtherItem()", style = "width: 60%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-box3">
+                        <div class=" sucContentDiv two">
+                            <div class="title" style="text-color:green;">AC הספקה לגורם נוסף</div>
+                            <div class="details" id="First_Details">
+                                <table id="table" style="width:100%;">
+                                    <tr style="width:auto">
+                                        <td style="width:11%"><div class="hebrew"><div class="parameter"> </div></div></td>
+                                        <td style="width:12%"><div class="hebrew"><div class="parameter">גודל מפסק הזנה</div></div></td>
+                                        <td style="width:8%"><div class="hebrew"><div class="parameter">סוג מונה</div></div></td>
+                                        <td style="width:10%"><div class="hebrew"><div class="parameter">מספר מונה</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">קריאת מונה מרחוק</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">קריאת מונה אחרונה</div></div></td>
+                                        <td style="width:17%"><div class="hebrew"><div class="parameter">תאריך קריאת מונה אחרונה</div></div></td>
+                                    </tr>
+                                    <tr style="width:auto">
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GOREMNOSAF_COMPANY_first, @Model.CamHasmal_CompanyName, String.Empty, new { id = "GOREMNOSAF_COMPANY_first", @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GodelMafsek_first, @Model.GodelMafsekRashi, String.Empty, new { id = "GodelMafsek_first", @class = "form-control", onchange = "GetOtherItem()", style = "width: 60%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_SugMone_first, @Model.SugMone, String.Empty, new { id = "SugMone_first", @class = "form-control", onchange = "GetOtherItem()", style = "width:80%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" id="MisparMone_first" name="MisparMone_first" value="@Model.str_MisparMone_first" style="width: 70%;" /></div></td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_KriatMoneMeRahok_first, @Model.KriatMoneMeRahok_GoremNosaf, String.Empty, new { id = "KriatMoneMeRahok_first", @class = "form-control", onchange = "GetOtherItem()", style = "width:40%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" id="str_KriatMoneAhrona_cellcom" name="KriatMoneAhrona_first" value="@Model.str_KriatMoneAhrona_first" style="width: 60%;" /></div></td>
+                                        <td><div class="insert"><input type="date" name="str_DATEKRIATMONEAHRONA_first" id="DATEKRIATMONEAHRONA_first" value="@Model.str_DATEKRIATMONEAHRONA_first" data-date-inline-picker="true" style="width: 70%; height: 18px;" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="details" id="Second_datails">
+                                <table id="table" style="width:100%;">
+                                    <tr style="width:auto">
+                                        <td style="width:11%"><div class="hebrew"><div class="parameter"></div></div></td>
+                                        <td style="width:12%"><div class="hebrew"><div class="parameter">גודל מפסק הזנה</div></div></td>
+                                        <td style="width:8%"><div class="hebrew"><div class="parameter">סוג מונה</div></div></td>
+                                        <td style="width:10%"><div class="hebrew"><div class="parameter">מספר מונה</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">קריאת מונה מרחוק</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">קריאת מונה אחרונה</div></div></td>
+                                        <td style="width:17%"><div class="hebrew"><div class="parameter">תאריך קריאת מונה אחרונה</div></div></td>
+                                      </tr>
+                                    <tr style="width:auto">
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GOREMNOSAF_COMPANY_second, @Model.CamHasmal_CompanyName, String.Empty, new { id = "GOREMNOSAF_COMPANY_second", @class = "form-control", @onchange = "funconchange(this)", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GodelMafsek_second, @Model.GodelMafsekRashi, String.Empty, new { id = "str_GodelMafsek_second", @class = "form-control", onchange = "GetOtherItem()", style = "width:60%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_SugMone_second, @Model.SugMone, String.Empty, new { id = "str_SugMone_second", @class = "form-control", onchange = "GetOtherItem()", style = "width:80%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" id="str_MisparMone_second" name="str_MisparMone_second" value="@Model.str_MisparMone_second" style="width: 70%;" /></div></td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_KriatMoneMeRahok_second, @Model.KriatMoneMeRahok_GoremNosaf, String.Empty, new { id = "str_KriatMoneMeRahok_second", @class = "form-control", onchange = "GetOtherItem()", style = "width:40%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" name="str_KriatMoneAhrona_second" id="str_KriatMoneAhrona_second" value="@Model.str_KriatMoneAhrona_second" style="width: 60%;" /></div></td>
+                                        <td><div class="insert"><input type="date" name="str_DATEKRIATMONEAHRONA_second" id="str_DATEKRIATMONEAHRONA_second" value="@Model.str_DATEKRIATMONEAHRONA_second" data-date-inline-picker="true" style="width: 70%; height:18px;" /></div></td>
+                                     </tr>
+                                </table>
+                            </div>
+                            <div class="details" id="thirddetails">
+                                <table id="table" style="width:100%;">
+                                    <tr style="width:auto">
+                                        <td style="width:11%"><div class="hebrew"><div class="parameter"></div></div></td>
+                                        <td style="width:12%"><div class="hebrew"><div class="parameter">גודל מפסק הזנה</div></div></td>
+                                        <td style="width:8%"><div class="hebrew"><div class="parameter">סוג מונה</div></div></td>
+                                        <td style="width:10%"><div class="hebrew"><div class="parameter">מספר מונה</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">קריאת מונה מרחוק</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">קריאת מונה אחרונה</div></div></td>
+                                        <td style="width:17%"><div class="hebrew"><div class="parameter">תאריך קריאת מונה אחרונה</div></div></td>
+                                    </tr>
+                                    <tr style="width:auto">
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GOREMNOSAF_COMPANY_third, @Model.CamHasmal_CompanyName, String.Empty, new {id = "GOREMNOSAF_COMPANY_third", @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GodelMafsek_third, @Model.GodelMafsekRashi, String.Empty, new { id = "GodelMafsekHazana_third", @class = "form-control", onchange = "GetOtherItem()", style = "width:60%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_SugMone_third, @Model.SugMone, String.Empty, new { id = "SugMone_third", @class = "form-control", onchange = "GetOtherItem()", style = "width:80%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" name="str_MisparMone_third" id="MisparMone_third" value="@Model.str_MisparMone_third" style="width: 70%;" /></div></td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_KriatMoneMeRahok_third, @Model.KriatMoneMeRahok_GoremNosaf, String.Empty, new { id = "KriatMoneMeRahok_third", @class = "form-control", onchange = "GetOtherItem()", style = "width:40%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" name="str_KriatMoneAhrona_third" id="KriatMoneAhrona_third" value="@Model.str_KriatMoneAhrona_third" style="width: 60%;" /></div></td>
+                                        <td><div class="insert"><input type="date" name="str_DATEKRIATMONEAHRONA_third" id="DATEKRIATMONEAHRONA_third" value="@Model.str_DATEKRIATMONEAHRONA_third" data-date-inline-picker="true" style="width: 70%; height:18px;" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="details" id="Quater_details">
+                                <table id="table" style="width:100%;">
+                                    <tr>
+                                        <td style="width:11%"><div class="hebrew"><div class="parameter"></div></div></td>
+                                        <td style="width:12%"><div class="hebrew"><div class="parameter">גודל מפסק הזנה</div></div></td>
+                                        <td style="width:8%"><div class="hebrew"><div class="parameter">סוג מונה</div></div></td>
+                                        <td style="width:10%"><div class="hebrew"><div class="parameter">מספר מונה</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">קריאת מונה מרחוק</div></div></td>
+                                        <td style="width:15%"><div class="hebrew"><div class="parameter">קריאת מונה אחרונה</div></div></td>
+                                        <td style="width:17%"><div class="hebrew"><div class="parameter">תאריך קריאת מונה אחרונה</div></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GOREMNOSAF_COMPANY_quater, @Model.CamHasmal_CompanyName, String.Empty, new { id = "str_GOREMNOSAF_COMPANY_quater", @class = "form-control", onchange = "GetOtherItem()", style = "width: 70%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_GodelMafsek_quater, @Model.GodelMafsekRashi, String.Empty, new { id = "str_GodelMafsek_quater", @class = "form-control", onchange = "GetOtherItem()", style = "width:60%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_SugMone_quater, @Model.SugMone, String.Empty, new { id = "str_SugMone_quater", @class = "form-control", onchange = "GetOtherItem()", style = "width:80%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" id="str_MisparMone_quater" name="str_MisparMone_quater" value="@Model.str_MisparMone_quater" style="width: 70%;" /></div></td>
+                                        <td>
+                                            <div class="insert">
+                                                @Html.DropDownListFor(m => @m.str_KriatMoneMeRahok_quater, @Model.KriatMoneMeRahok_GoremNosaf, String.Empty, new { id = "str_KriatMoneMeRahok_quater", @class = "form-control", onchange = "GetOtherItem()", style = "width:40%;  border:1px solid #7D7D7D; border-radius:5px;" })
+                                            </div>
+                                        </td>
+                                        <td><div class="insert"><input type="text" id="str_KriatMoneAhrona_quater" name="str_KriatMoneAhrona_quater" value="@Model.str_KriatMoneAhrona_quater" style="width: 60%;" /></div></td>
+                                        <td><div class="insert"><input type="date" name="str_DATEKRIATMONEAHRONA_quater" id="str_DATEKRIATMONEAHRONA_quater" value="@Model.str_DATEKRIATMONEAHRONA_quater" data-date-inline-picker="true" style="width: 70%; height:18px;" /></div></td>
+                                     </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-box5">
+                        <div class=" sucContentDiv two">
+                            <div class="details">
+                                <table id="table" style="width:100%;">
+                                    <tr>
+                                        <td style="width:15%;"><div class="hebrew"><div class="parameter">תאריך ביקורת AC אחרונה</div></div></td>
+                                        <td style="width:50%">
+                                            <div class="insert">
+                                                <input type="date" name="str_TaarihBikoretAC" id="str_TaarihBikoretAC" value="@Model.str_TaarihBikoretAC" data-date-inline-picker="true" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-box4">
+                        <div class=" sucContentDiv two">
+                            <div class="details">
+                                <table id="table" style="width:100%;">
+                                    <tr>
+                                        <td style="width:15%;"><div class="hebrew"><div class="parameter">הערות</div></div></td>
+                                        <td style="width:50%">
+                                            <div class="hebrew">
+                                                @Html.TextArea("str_Notes", Model.str_Notes, 5, 4, new { id = "str_Notes", Style = "margin-left:4.2cm; width:75%;height:35px;" })
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+    </body>
+}
+</html>

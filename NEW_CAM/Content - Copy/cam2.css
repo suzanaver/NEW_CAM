@@ -1,0 +1,129 @@
+#wrapper{
+height : 974px;
+width: 100%;
+float:right;
+ border-radius: 20px;
+  background: #f6f6f6;
+   border: 1px solid transparent;
+    border-bottom-color: #8dc73e;
+    -webkit-transition: all .4s ease 0s;
+    -moz-transition: all .4s ease 0s;
+    -ms-transition: all .4s ease 0s;
+    -o-transition: all .4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+html, body {height: 100%;}
+#wrapper .userDetailsHeader
+{
+    background-color: green;
+    color: #3EA93E;
+    font-weight: 900;
+	border-top-right-radius:20px;
+	border-top-left-radius:20px;
+    
+}
+
+.floating-box {
+	float:right;
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    margin: 0.1%;
+
+}
+.floating-box2 {
+    float:right;
+    display:inline-block;
+    width: 25%;
+    height: 100%;
+    margin: 0.1%;
+}
+
+.floating-box3 {
+    float:right;
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    margin: 0.1%;
+   
+}
+
+.floating-box4 {
+	border-bottom-left-radius:20px;
+    float:right;
+    display: inline-block;
+    width: 24%;
+    height:100%;
+    margin: 0.1%;
+}
+.sucContentDiv
+{
+	border : 1px solid red;
+	direction:rtl;
+}
+.one{
+height:30%;
+}
+.two{
+height:20%;
+}
+.three{
+height:25%;
+}
+.four{
+height:25%;
+}
+.twoOne{
+height:50%;
+}
+.twoTwo{
+height:30%;
+}
+.twoThree{
+height:20%;
+}
+.threeOne{
+height:50%;
+}
+.threeTwo{
+height:50%;
+}
+.fourOne{
+height:20%;
+}
+.fourTwo{
+height:20%;
+}
+.fourThree{
+height:20%;
+}
+.fourfour{
+height:40%;
+}
+.parameter{
+
+margin-right:10px;
+	width:60%;
+    display: inline-block;
+	font-size:30px;
+	font-style:bold;
+}
+.insert{width:25%;
+    display: inline-block;
+}
+.title{
+    display: inline-block;
+	font-size:40px;
+	font-style:bold;
+	color:green;
+	text-decoration: underline;
+}
+.english{
+	direction:ltr;
+	margin-left:15px;
+}
+.details{
+
+	
+}

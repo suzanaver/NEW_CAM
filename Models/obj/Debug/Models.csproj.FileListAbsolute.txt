@@ -1,0 +1,17 @@
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\Models\bin\Debug\Models.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\Models\bin\Debug\Models.pdb
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\Models\obj\Debug\Models.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\Models\obj\Debug\Models.pdb
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\Models\bin\Debug\Models.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\Models\bin\Debug\Models.pdb
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\Models\obj\Debug\Models.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\Models\obj\Debug\Models.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\Models\bin\Debug\Models.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\Models\bin\Debug\Models.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\Models\obj\Debug\Models.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\Models\obj\Debug\Models.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\Models\bin\Debug\Models.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\Models\bin\Debug\Models.pdb
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\Models\obj\Debug\Models.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\Models\obj\Debug\Models.pdb

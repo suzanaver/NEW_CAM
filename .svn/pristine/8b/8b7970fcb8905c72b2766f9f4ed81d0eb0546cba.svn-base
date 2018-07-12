@@ -1,0 +1,365 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using NEW_CAM.Models;
+using Oracle.DataAccess.Client;
+using System.Text.RegularExpressions;
+
+namespace NEW_CAM.Controllers
+{
+   
+    public class KlaliController : Controller
+    {
+
+        public ActionResult ShowCam()
+        {
+
+            string SITE_ID_param = "";
+            var vm = new ContactListViewModel();
+            if (!Request.QueryString.ToString().Contains("SITE"))
+            {
+                SITE_ID_param = Globals.site_id;
+            }
+            else { SITE_ID_param = Request.QueryString["SITE"]; }
+            string SITE_ID = Regex.Match(SITE_ID_param, @"\d+").Value;
+            int siteInt = int.Parse(SITE_ID);
+            Dal dal = new Dal();
+            string fiveDigits = dal.checkExistance(SITE_ID);
+            string siteNameAttoll = dal.getSiteName(SITE_ID);
+            if (fiveDigits==string.Empty)
+            {
+                dal.insertRowCamPramisData(siteNameAttoll);// 5 digits
+                dal.insertRowCamSiteDetails(siteNameAttoll);// 5 digits
+                dal.insertRowCamDataMenual(siteNameAttoll);
+            }
+            OracleCommand oCommand;
+            OracleDataAdapter oDataAdapter;
+            OracleConnection oConn = dal.Connect("gisOraConn");
+            oConn.Open();
+            oCommand = new OracleCommand();
+            oCommand.Connection = oConn;
+            oCommand.CommandText = "select * from GIS_CAM_CONTACTS_MENUAL where rownum<4 AND site_id = '" + SITE_ID + "'";
+            oDataAdapter = new OracleDataAdapter(oCommand);
+            var reader2 = oCommand.ExecuteReader();
+            int i = 0;
+            List<CamContactList> ccl = new List<CamContactList>();
+            if (!reader2.Read()) {
+                for (int j = 0; j < 3; j++)
+                {
+                    dal.insert3Rows(SITE_ID);
+                }
+               
+            }
+            oConn.Close();
+            oConn.Open();
+            oCommand = new OracleCommand();
+            oCommand.Connection = oConn;
+            oCommand.CommandText = "select * from GIS_CAM_CONTACTS_MENUAL where rownum<4 AND site_id = '" + SITE_ID + "' order by contact1";
+            oDataAdapter = new OracleDataAdapter(oCommand);            
+            var reader5 = oCommand.ExecuteReader();
+            while (reader5.Read())
+            {
+                CamContactList ccaa = new CamContactList();
+                ccaa.contact1 = reader5["contact1"].ToString();
+                ccaa.txtphonecellular = reader5["txtphonecellular"].ToString();
+                ccaa.txtphonecellular2 = reader5["txtphonecellular2"].ToString();
+                ccaa.remarks = reader5["remarks"].ToString();
+                ccl.Add(ccaa);
+            }
+            oConn.Close();
+            string concatTechnologies = "";
+            string RNC="", HDBSC = "";
+            oConn = dal.Connect("gisOraConn");
+            oConn.Open();
+            oCommand = new OracleCommand();
+            oCommand.Connection = oConn;
+            oCommand.CommandText = "select RNC, HDBSC from V_GIS_RNC_HDBSC where NAME like '%" + SITE_ID + "%'";
+            oDataAdapter = new OracleDataAdapter(oCommand);
+            var reader4 = oCommand.ExecuteReader();
+            while (reader4.Read())
+            {
+                RNC = reader4["RNC"].ToString();
+                HDBSC = reader4["HDBSC"].ToString();
+            }
+            oConn.Close();
+            oCommand = new OracleCommand();
+            OracleConnection oConn3 = dal.Connect("gisOraConn");
+            oConn3.Open();
+            oCommand.Connection = oConn3;
+            oCommand.CommandText = "select ARCSIZE from v_cam_gis_gsm WHERE DOOR = '" + SITE_ID + "'";
+            oDataAdapter = new OracleDataAdapter(oCommand);
+            var reader3 = oCommand.ExecuteReader();
+
+            while (reader3.Read())
+            {
+                concatTechnologies += reader3["ARCSIZE"].ToString();
+            }
+            oConn3.Close();
+            oCommand = new OracleCommand();
+            OracleConnection oConn4 = dal.Connect("gisOraConn");
+            oConn3.Open();
+            oCommand.Connection = oConn3;
+            oCommand.CommandText = "select ARCSIZE from v_cam_gis_LTE WHERE DOOR = '" + SITE_ID + "'";
+            oDataAdapter = new OracleDataAdapter(oCommand);
+            var lteReader = oCommand.ExecuteReader();
+
+            while (lteReader.Read())
+            {
+                concatTechnologies += lteReader["ARCSIZE"].ToString();
+            }
+            oConn3.Close();
+            oCommand = new OracleCommand();
+            OracleConnection oConn5 = dal.Connect("gisOraConn");
+            oConn5.Open();
+            oCommand.Connection = oConn5;
+            oCommand.CommandText = "select ARCSIZE from v_cam_gis_TECHNOLOGIES WHERE site_name_id = '" + SITE_ID + "'";
+            oDataAdapter = new OracleDataAdapter(oCommand);
+            var umtsReader = oCommand.ExecuteReader();
+
+            while (umtsReader.Read())
+            {
+                concatTechnologies += umtsReader["ARCSIZE"].ToString();
+            }
+            oConn5.Close();
+            CamKlaliModel camKlali = new CamKlaliModel();
+            OracleCommand oCommand2;
+            OracleDataAdapter oDataAdapter2;
+            OracleConnection oConn2 = dal.Connect("gisOraConn");
+            oConn2.Open();
+            oCommand = new OracleCommand();
+            oCommand.Connection = oConn2;
+            oCommand.CommandText = "select * from v_gis_cam_general where site_name_id like '%" + SITE_ID + "%'";
+            oDataAdapter = new OracleDataAdapter(oCommand);
+            var reader = oCommand.ExecuteReader();
+
+            if (!reader.Read()) {
+                return Content("בעיה בהצדת הנתונים. אנא פנה למנהל המערכת");
+            }
+            else
+            {
+                camKlali.SITE_NAME_ID = reader["site_name_id"].ToString();
+                camKlali.TXTADDRESS = reader["TXTADDRESS"].ToString();
+                 camKlali.txtswitch = reader["txtswitch"].ToString();
+                camKlali.txtswitchsecundary = reader["txtswitchsecundary"].ToString();
+                camKlali.TXTCITY = reader["TXTCITY"].ToString();
+                camKlali.MME = reader["MME"].ToString();
+                camKlali.MONE_NUM = reader["MONE_NUM"].ToString();
+                camKlali.CONTRUCT_NUM = reader["CONTRUCT_NUM"].ToString();
+                camKlali.mnuPoleType = reader["mnuPoleType"].ToString();
+                camKlali.SIM_NUM = reader["SIM_NUM"].ToString();
+                camKlali.MMARECHET_KOAH_NUM = reader["MMARECHET_KOAH_NUM"].ToString();
+                camKlali.cbk_PELEPHONE = reader["CBK"].ToString().Contains("Pelephone") ? "Pelephone" : "";
+                camKlali.cbk_CELLCOM = reader["CBK"].ToString().Contains("Cellcom") ? "Cellcom" : "";
+                camKlali.cbk_HOT_CBK = reader["CBK"].ToString().Contains("Mirs") ? "Mirs" : "";
+                camKlali.cbk_BEZEQ = reader["CBK"].ToString().Contains("Bezeq") ? "Bezeq" : "";
+                camKlali.cbk_PARTNER = reader["CBK"].ToString().Contains("Partner") ? "Partner" : "";
+                camKlali.A_24_HOURS = reader["A_24_HOURS"].ToString();
+                camKlali.NEEDS_GENERATOR = reader["NEEDS_GENERATOR"].ToString();
+                camKlali.TIMEGENFROM = reader["TIMEGENFROM"].ToString();
+                camKlali.TIMEGENTO = reader["TIMEGENTO"].ToString();
+                camKlali.CKBTECH24 = reader["CKBTECH24"].ToString();
+                camKlali.TXTPOLEOWNERSHIP1 = reader["TXTPOLEOWNERSHIP1"].ToString();
+                camKlali.MNUSITETYPE = reader["MNUSITETYPE"].ToString();
+                camKlali.MNUSTRUCTURETYPE = reader["MNUSTRUCTURETYPE"].ToString();
+                camKlali.CHRSITENEEDCOORD = reader["CHRSITENEEDCOORD"].ToString();
+                camKlali.ACCESS_INSTRUCTIONS = reader["ACCESS_INSTRUCTIONS"].ToString();
+                camKlali.CHRSITESENSITIVE = reader["CHRSITESENSITIVE"].ToString();
+                camKlali.CHRSITEENTRCODE = reader["CHRSITEENTRCODE"].ToString();
+                camKlali.CHRSITECARRESTR = reader["CHRSITECARRESTR"].ToString();
+                camKlali.CHRSITESECURITY = reader["CHRSITESECURITY"].ToString();
+                camKlali.ELECTRICITY_SOURCE = reader["ELECTRICITY_SOURCE"].ToString();
+                camKlali.TXTCURRENTRF = reader["TXTCURRENTRF"].ToString();
+                camKlali.TXTCURRENTRFREPORT = reader["TXTCURRENTRF"].ToString().Contains("CR") ?"http://10.8.117.15/SiteReports/home/DisplayChaneRequestReports?crVersion="+ reader["TXTCURRENTRF"].ToString() :
+                    "http://10.8.117.27/SiteReports/home/DisplayRfReport?RfVersion=" + reader["TXTCURRENTRF"].ToString();
+
+                camKlali.GSM_1800 = concatTechnologies.Contains("GSM1800") ? "כן" : "לא";
+                camKlali.GSM_900 = concatTechnologies.Contains("GSM900") ? "כן" : "לא";
+                camKlali.LTE_1800 = concatTechnologies.Contains("LTE1800") ? "כן" : "לא";
+                camKlali.LTE_2100 = concatTechnologies.Contains("LTE2100") ? "כן" : "לא";
+                camKlali.LTE_900 = concatTechnologies.Contains("LTE900") ? "כן" : "לא";
+                camKlali.IDEN = concatTechnologies.Contains("IDEN") ? "כן" : "לא";
+                camKlali.UMTS_2100 = concatTechnologies.Contains("UMTS2100") ? "כן" : "לא";
+                camKlali.UMTS_900 = concatTechnologies.Contains("UMTS900") ? "כן" : "לא";
+                camKlali.CamContactList = ccl;
+
+                camKlali.RNC_ID_ = RNC;
+                    camKlali.HDBSC =HDBSC;
+                camKlali.openIncidents = reader["openIncidents"].ToString();
+                camKlali.lastTechAtSite = reader["lastTechAtSite"].ToString();
+                camKlali.HOSTED = reader["HOSTED"].ToString();
+                camKlali.EZOR_HALUKA = reader["EZOR_HALUKA"].ToString();
+                camKlali.RATZ_EZOR = reader["RATZ_EZOR"].ToString();
+                camKlali.TECH_POLY = reader["TECH_POLY"].ToString();
+                camKlali.HAS_TRANSMITION_BKP = reader["HAS_TRANSMITION_BKP"].ToString();
+                camKlali.SUPPLY_SIZE = reader["SUPPLY_SIZE"].ToString();
+                camKlali.IsInit = reader["IsInit"].ToString();
+            }
+
+            return View(camKlali);
+        }
+        public ActionResult ShowHashmal()
+        {
+            return View();
+        }
+        //
+        // GET: /Klali/
+        public ActionResult ShowAirCond()
+        {
+            CamAirCondModel CamAir = new CamAirCondModel();
+          
+            
+            Dal dal = new Dal();
+            OracleCommand oCommand;
+            OracleDataAdapter oDataAdapter;
+            OracleConnection oConn = dal.Connect("tech_cm");
+            oConn.Open();
+            oCommand = new OracleCommand();
+            oCommand.Connection = oConn;
+            //room details:
+            oCommand.CommandText = "SELECT room_number, room_type, has_private_equipment, length_2, width,location,owner,remarks,site_type FROM CM_ROOM  WHERE DOOR =7864 AND ROOM_NUMBER=1";
+            oDataAdapter = new OracleDataAdapter(oCommand);
+            var reader = oCommand.ExecuteReader();
+            if (reader.Read())
+            {
+              
+                CamAir.SITE_TYPE = reader["site_type"].ToString();
+                CamAir.room_type = reader["room_type"].ToString();
+                CamAir.owner = reader["owner"].ToString();
+            }
+            // conditioners details:
+            int conditionersNum = 0;
+            //         oConn.Open();
+            oCommand = new OracleCommand();
+            oCommand.Connection = oConn;
+            //how many conditiones:
+            oCommand.CommandText = "SELECT count(*) as cond_Num FROM CM_AIR_COND  WHERE DOOR =7864 and room = 1";
+            //"select * from CM_AIR_COND_V2";
+            oDataAdapter = new OracleDataAdapter(oCommand);
+            reader = oCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                conditionersNum = int.Parse(reader["cond_Num"].ToString());
+            }
+            oConn.Close();
+            oConn.Open();
+            oCommand = new OracleCommand();
+            oCommand.Connection = oConn;
+            //how many conditiones:
+            oCommand.CommandText = "SELECT * FROM CM_AIR_COND  WHERE DOOR =7864 and room = 1";
+            //"select * from CM_AIR_COND_V2";
+            oDataAdapter = new OracleDataAdapter(oCommand);
+            reader = oCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                CamAir.MANUFACTURER = reader["MANUFACTURER"].ToString();
+                CamAir.TYPE_2 = reader["TYPE_2"].ToString();
+                CamAir.MODEL = reader["MODEL"].ToString();
+            }
+
+            return View(CamAir);
+        }
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Klali/Details/5
+
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        //
+        // GET: /Klali/Create
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        public ActionResult Save(CamKlaliModel camKlali)
+        {
+            Globals.site_id = camKlali.SITE_NAME_ID;
+            Dal dal = new Dal();
+            dal.saveData(camKlali);
+            //   UPDATE gis_cam_pramis_data_4 A SET A.TIMEGENFROM  = camKlali.TIMEGENFROM, A.TIMEGENTO = camKlali.TIMEGENTO, A_24_HOURS = camKlali.A_24_HOURS, CKBTECH24 = camKlali.CKBTECH24,
+            // CHRSITENEEDCOORD = camKlali.CHRSITENEEDCOORD,  
+         // WHERE A.SITE_NAME_ID= '4625A'
+            //   return Content("הנתונים נשמרו בהצלחה"); 
+          return  RedirectToAction("ShowCam");
+          //  return View("ShowCam",camKlali);
+        }
+        // POST: /Klali/Create
+
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // GET: /Klali/Edit/5
+
+        public ActionResult Edit(int id)
+        {
+
+            return View();
+        }
+
+        //
+        // POST: /Klali/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // GET: /Klali/Delete/5
+
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        //
+        // POST: /Klali/Delete/5
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NewCamDataAccess\bin\Debug\NewCamDataAccess.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NewCamDataAccess\bin\Debug\NewCamDataAccess.pdb
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NewCamDataAccess\bin\Debug\Models.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NewCamDataAccess\bin\Debug\Models.pdb
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.pdb
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NewCamDataAccess\bin\Debug\NewCamDataAccess.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NewCamDataAccess\bin\Debug\NewCamDataAccess.pdb
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NewCamDataAccess\bin\Debug\Models.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NewCamDataAccess\bin\Debug\Models.pdb
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NewCamDataAccess\bin\Debug\NewCamDataAccess.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NewCamDataAccess\bin\Debug\NewCamDataAccess.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NewCamDataAccess\bin\Debug\Models.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NewCamDataAccess\bin\Debug\Models.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.pdb
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NewCamDataAccess\bin\Debug\NewCamDataAccess.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NewCamDataAccess\bin\Debug\NewCamDataAccess.pdb
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NewCamDataAccess\bin\Debug\Models.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NewCamDataAccess\bin\Debug\Models.pdb
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NewCamDataAccess\obj\Debug\NewCamDataAccess.pdb

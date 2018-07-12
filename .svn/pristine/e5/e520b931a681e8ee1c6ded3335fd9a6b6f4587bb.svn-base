@@ -1,0 +1,382 @@
+﻿using NEW_CAM.Models;
+using Oracle.DataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.Configuration;
+
+
+namespace NEW_CAM
+{
+    public class Dal
+    {
+        public OracleConnection Connect(string astrConnectionString)
+        {
+            return new OracleConnection(WebConfigurationManager.ConnectionStrings[astrConnectionString].ConnectionString);
+        }
+
+        public bool saveData(CamKlaliModel camKlali)
+        {
+            string concat = "";
+            string[] camCell = { camKlali.cbk_PELEPHONE, camKlali.cbk_CELLCOM, camKlali.cbk_PARTNER, camKlali.cbk_HOT_CBK };
+            foreach (string company in camCell)
+            {
+                if (company == null)
+                {
+                    continue;
+                }
+                else
+                {
+                    if (concat != "")
+                    {
+                        concat += "," + company;
+                    }
+                    else { concat += company; }
+                }
+
+            }
+            //      string concat = camKlali.cbk_PELEPHONE + "," + camKlali.cbk_CELLCOM + "," + camKlali.cbk_PARTNER + "," + camKlali.cbk_HOT_CBK;
+            try
+            {
+
+                updateGisCamPramis(camKlali);
+                updateGisCamMenualFill(camKlali);
+                updateContacts(camKlali.CamContactList, camKlali.SITE_NAME_ID);
+                updateGisCamPramis2(camKlali, concat);
+
+                //    updatateGisCamDetails(camKlali);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("SiteDownLogHistory:Error trying to create log on DBConnection : " + ex.Message);
+            }
+            return true;
+        }
+        public string getRnc(int x, int y)
+        {
+            string res = "";
+            OracleConnection cn = new OracleConnection(WebConfigurationManager.ConnectionStrings["gisOraConn"].ConnectionString);
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "get_rnc";
+            cmd.Parameters.Add("results", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            cmd.Parameters.Add("p_x", OracleDbType.Decimal).Value = x;
+            cmd.Parameters.Add("p_y", OracleDbType.Decimal).Value = y;
+            cmd.Connection = cn;
+            cmd.InitialLONGFetchSize = 1000;
+            cmd.Connection.Open();
+            using (var reader = cmd.ExecuteReader())
+            {
+                int j = 0;
+                if (reader.Read())
+                {
+                    res = (readCellFromDb(reader, 0));
+                }
+            }
+            return res;
+        }
+
+        public void updatateGisCamDetails(CamKlaliModel camKlali)
+        {
+            OracleConnection oConn = Connect("aradmin");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+
+        }
+
+        // todo:check to update
+        public void updateGisCamMenualFill(CamKlaliModel camKlali)
+        {
+            string instuctions = camKlali.ACCESS_INSTRUCTIONS == null ? "" : camKlali.ACCESS_INSTRUCTIONS;
+            OracleConnection oConn = Connect("gisOraConn");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            cmd.CommandText = " UPDATE gis_camdata_menual A SET A.EZOR_HALUKA  = '" + camKlali.EZOR_HALUKA + "' , A.RATZ_EZOR = '" + camKlali.RATZ_EZOR +
+                "' , TECH_POLY = '" + camKlali.TECH_POLY + "', A.SUPPLY_SIZE ='" + camKlali.SUPPLY_SIZE + "', MNUSTRUCTURETYPE='" + camKlali.MNUSTRUCTURETYPE +
+              "', A.ACCESS_INSTRUCTIONS ='" + instuctions + "' WHERE A.SITE_NAME_ID ='" + camKlali.SITE_NAME_ID + "'";
+
+            ;//"UPDATE LOG_SITE_DOWN SET removedMenual='yes' WHERE SITE_ID='" + siteid + "'";
+            if (cmd.Connection.State == ConnectionState.Closed)
+            {
+                cmd.Connection.Open();
+            }
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+        }
+        public void updateContacts(List<CamContactList> camKlali, string site_name_id)
+        {
+            string SITE_ID = Regex.Match(site_name_id, @"\d+").Value;
+            int siteInt = int.Parse(SITE_ID);
+            OracleConnection oConn = Connect("gisOraConn");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            cmd.CommandText = "delete from GIS_CAM_CONTACTS_MENUAL A where A.SITE_ID='" + siteInt + "'";
+            //cmd.CommandText = " UPDATE  GIS_CAM_CONTACTS_MENUAL_FILL A SET contact1 ='" + contact.contact1 + "',txtphonecellular ='" + contact.txtphonecellular + "',txtemail ='" + contact.txtphonecellular2 + "',txtphonefax='" + contact.txtphonecellular2 +
+            //   "' WHERE A.SITE_NAME_ID='" + site_name_id + "' AND A.txtusername='" + contact.txtusername + "'";
+            if (cmd.Connection.State == ConnectionState.Closed)
+            {
+                cmd.Connection.Open();
+            }
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+            insertUpdatedContacts(camKlali, site_name_id);
+        }
+
+
+
+
+        public void insertUpdatedContacts(List<CamContactList> camKlali, string site_name_id)
+        {
+            string SITE_ID = Regex.Match(site_name_id, @"\d+").Value;
+            int siteInt = int.Parse(SITE_ID);
+            OracleConnection oConn = Connect("gisOraConn");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            foreach (var contact in camKlali)
+            {
+                cmd.CommandText = "insert into  GIS_CAM_CONTACTS_MENUAL A  (site_id, contact1, txtphonecellular , txtphonecellular2, remarks)" +
+                     "values('" + siteInt + "','" + contact.contact1 + "','" + contact.txtphonecellular + "','" + contact.txtphonecellular2 + "','" + contact.remarks + "')";
+                //cmd.CommandText = " insert into  GIS_CAM_CONTACTS_MENUAL A SET site_id='" + SITE_ID + "' contact1 ='" +
+                //   contact.contact1 + "',txtphonecellular ='" + contact.txtphonecellular + "',txtphonecellular2 ='" + contact.txtphonecellular2 
+                //  + "', remarks='" + contact.remarks + "'";
+                if (cmd.Connection.State == ConnectionState.Closed)
+                {
+                    cmd.Connection.Open();
+                }
+                cmd.ExecuteNonQuery();
+            }
+            cmd.Connection.Close();
+        }
+        public  string checkExistance(string site_id_) {
+            string siteName = "";
+            OracleConnection oConn = Connect("gisOraConn");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            cmd.CommandText = "select site_name_id from v_gis_cam_general where site_name_id like '%" + site_id_ + "%'";
+            if (cmd.Connection.State == ConnectionState.Closed)
+            {
+                cmd.Connection.Open();
+            }
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    siteName = reader["site_name_id"].ToString();
+                }
+            }
+            cmd.Connection.Close();
+            return siteName;
+        }
+        public string getSiteName(string site_id_)
+        {
+            string siteName = "";
+            OracleConnection oConn = Connect("gisOraConn");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            cmd.CommandText = "select substr(name, 2) as sname from v_orange_sites where substr(name, 3) like '%" + site_id_ + "%'";
+            if (cmd.Connection.State == ConnectionState.Closed)
+            {
+                cmd.Connection.Open();
+            }
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    siteName = reader["sname"].ToString();
+                }
+            }
+            cmd.Connection.Close();
+            return siteName;
+        }
+
+       public void insertRowCamDataMenual(string SITE_ID){
+           OracleConnection oConn = Connect("gisOraConn");
+           OracleDataAdapter da = new OracleDataAdapter();
+           OracleCommand cmd = new OracleCommand();
+           cmd.Connection = oConn;
+           cmd.CommandText = "insert into  gis_camdata_menual A  (site_name_id)" +
+                  "values('" + SITE_ID + "')";
+           if (cmd.Connection.State == ConnectionState.Closed)
+           {
+               cmd.Connection.Open();
+           }
+           cmd.ExecuteNonQuery();
+           cmd.Connection.Close();
+    }
+         public void insertRowCamSiteDetails(string SITE_ID){
+
+             OracleConnection oConn = Connect("aradmin");
+             OracleDataAdapter da = new OracleDataAdapter();
+             OracleCommand cmd = new OracleCommand();
+             cmd.Connection = oConn;
+             cmd.CommandText = "insert into  GIS_CAM_SITE_DETAILS A  (site_name_id)" +
+                    "values('" + SITE_ID + "')";
+             if (cmd.Connection.State == ConnectionState.Closed)
+             {
+                 cmd.Connection.Open();
+             }
+             cmd.ExecuteNonQuery();
+             cmd.Connection.Close();
+
+         }
+        public void insertRowCamPramisData(string SITE_ID)// 5 digits
+         {
+             OracleConnection oConn = Connect("aradmin");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            cmd.CommandText = "insert into  gis_cam_pramis_data A  (site_name_id)" +
+                   "values('" + SITE_ID+ "')";
+            if (cmd.Connection.State == ConnectionState.Closed)
+            {
+                cmd.Connection.Open();
+            }
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
+        
+        }
+        public void insert3Rows(string siteInt)
+        {
+            OracleConnection oConn = Connect("gisOraConn");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            cmd.CommandText = "insert into  GIS_CAM_CONTACTS_MENUAL A  (site_id, contact1, txtphonecellular , txtphonecellular2, remarks)" +
+                   "values('" + siteInt + "','','','','')";
+            if (cmd.Connection.State == ConnectionState.Closed)
+            {
+                cmd.Connection.Open();
+            }
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
+        }
+
+        public void updateGisCamPramis(CamKlaliModel camKlali)
+        {
+            OracleConnection oConn = Connect("aradmin");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            cmd.CommandText = " UPDATE GIS_CAM_SITE_DETAILS A SET  HOSTED='" + camKlali.HOSTED + "'" +
+               ", A.ELECTRICITY_SOURCE ='" + camKlali.ELECTRICITY_SOURCE + "', A.NEEDS_GENERATOR ='" + camKlali.NEEDS_GENERATOR + "',A.SIM_NUM= '" + camKlali.SIM_NUM + "' WHERE A.SITE_NAME_ID='" + camKlali.SITE_NAME_ID + "'";//"UPDATE LOG_SITE_DOWN SET removedMenual='yes' WHERE SITE_ID='" + siteid + "'";
+            if (cmd.Connection.State == ConnectionState.Closed)
+            {
+                cmd.Connection.Open();
+            }
+
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+        }
+        public void updateGisCamPramis2(CamKlaliModel camKlali, string concat)
+        {
+            OracleConnection oConn = Connect("aradmin");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            cmd.CommandText = " UPDATE gis_cam_pramis_data A SET A.TIMEGENFROM  = '" + camKlali.TIMEGENFROM + "' , A.TIMEGENTO = '" + camKlali.TIMEGENTO + "' , A_24_HOURS = '" + camKlali.A_24_HOURS + "' , CKBTECH24 = '" + camKlali.CKBTECH24 +
+                "', A.CHRSITESENSITIVE ='" + camKlali.CHRSITESENSITIVE + "', A.CHRSITENEEDKEY ='" + camKlali.chrSiteNeedKey + "', A.CHRSITENEEDCOORD ='" + camKlali.CHRSITENEEDCOORD + "', A.CHRSITEENTRCODE ='" + camKlali.CHRSITEENTRCODE + "',A.CHRSITECARRESTR= '" + camKlali.CHRSITECARRESTR + "', A.CHRSITESECURITY= '" + camKlali.CHRSITESECURITY + "', A.cbk= '" + concat + "'" + " WHERE A.SITE_NAME_ID='" + camKlali.SITE_NAME_ID + "'";//"UPDATE LOG_SITE_DOWN SET removedMenual='yes' WHERE SITE_ID='" + siteid + "'";
+            if (cmd.Connection.State == ConnectionState.Closed)
+            {
+                cmd.Connection.Open();
+            }
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+        }
+        // rnc
+        public string getRncRacData()
+        {
+            OracleConnection oConn = Connect("OracleDatabase");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            string rnc = "";
+            cmd.CommandText = "select rnc_id from v_orange_sites t where name ='CW0230'";//"UPDATE LOG_SITE_DOWN SET removedMenual='yes' WHERE SITE_ID='" + siteid + "'";
+            try
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        rnc = readCellFromDb(reader, 0);
+                    }
+                }
+            }
+            catch (Exception ex) { writeToLog("getColorByIncidentNumber: failed to execute. command text: " + cmd.CommandText + ex.InnerException); }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return rnc;
+        }
+
+        public string getEmptyData()
+        {
+            //HDBSC_MME_TECH_MANGER_supply_hosted
+            OracleConnection oConn = Connect("OracleDatabase");
+            OracleDataAdapter da = new OracleDataAdapter();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = oConn;
+            string rnc = "";
+            cmd.CommandText = "select '' as HDBSC, '' as MME, '' as TECH, '' as MANGER, '' as supply, '' as hosted from dual where name ='CW0230'";//"UPDATE LOG_SITE_DOWN SET removedMenual='yes' WHERE SITE_ID='" + siteid + "'";
+            try
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        rnc = readCellFromDb(reader, 0);
+                    }
+                }
+            }
+            catch (Exception ex) { writeToLog("getColorByIncidentNumber: failed to execute. command text: " + cmd.CommandText + ex.InnerException); }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return rnc;
+        }
+        public static void writeToLog(string logMsg)
+        {
+            System.IO.File.AppendAllText(@"C:\log_to_sms.txt", DateTime.Now + logMsg + Environment.NewLine);
+        }
+        public string readCellFromDb(OracleDataReader reader, int i)
+        {
+            string type = reader.GetFieldType(i).ToString();
+            switch (type)
+            {
+                case "System.String":
+                    return reader.GetOracleString(i).IsNull ? "" : reader.GetString(i);
+                case "System.DateTime":
+                    {
+                        return reader.GetOracleDate(i).IsNull ? "" : reader.GetDateTime(i).ToString();
+                    }
+                case "System.Character":
+                    {
+                        return reader.GetChar(i).ToString();
+                    }
+                case "System.Decimal":
+                    {
+                        return reader.GetOracleDecimal(i).IsNull ? "" : System.Convert.ToString(reader.GetDecimal(i));
+                    }
+                case "System.Int64":
+                    {
+                        return System.Convert.ToString(reader.GetInt64(i));
+                    }
+
+            }
+            return "";
+        }
+    }
+}

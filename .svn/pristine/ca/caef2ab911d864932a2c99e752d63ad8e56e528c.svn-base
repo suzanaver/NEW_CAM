@@ -1,0 +1,83 @@
+﻿@*@model NEW_CAM.Models.CamHashmalModel
+@{
+    ViewBag.Title = "ShowHashmal";
+}
+
+<h2>ShowHashmal</h2>
+<html>
+
+<head>
+	<style>
+	</style>
+    <link href="cam_hashmal.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div class="userDetailsHeader" > 
+		<div class="floating-box" style="width:40%;">	
+			<div style="height:30%;">
+			    <div class="title">בע"נ</div>		
+                
+				<div><div class="parameter">מקור הזנת חשמל</div><div class="insert"> <input type="text" name="Name" value="@Model.makor_hazanat_hashmal" /></div>
+				<div class="parameter">מיקום מא"ז ראשי חיצוני </div><div class="insert"> <input type="text" name="Name" value="@Model.mikum_maaz_rashi_hizoni" /></div></div>
+				<div><div class="parameter">גודל מא"ז במקור הזנת החשמל </div><div class="insert"> <input type="text" name="Name" value="@Model.godel_maaz_bemaaz_hashmal" /></div>
+				<div class="parameter">מונה בהזנת החשמל</div><div class="insert"> <input type="text" name="Name" value="@Model.mone_behazanat_hashmal" /></div></div>			
+				<div><div class="parameter">סוג מונה</div><div class="insert"> <input type="text" name="Name" value="@Model.mone_type" /></div>	
+				<div class="parameter">מס מונה</div><div class="insert"> <input type="text" name="Name" value="@Model.mone_num" /></div></div>			
+				<div><div class="parameter">מס חוזה</div><div class="insert"> <input type="text" name="Name" value="@Model.contract_number" /></div>	
+				<div class="parameter">קריאה מונה מרחוק?</div><div class="insert"> <input type="text" name="Name" value="@Model.kri" /></div></div>	
+			</div>
+			<div style="height:30%;">
+				<div class="title">חדר</div>		
+				<div><div class="parameter">גודל מא"ז ראשי בחדר</div><div class="insert"> <input type="text" name="Name" value="@Model." /></div>
+				<div class="parameter">סוג לוח חשמל </div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+				<div><div class="parameter">קריאה מונה מרחוק?</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div>
+				<div class="parameter">מונה צריכת חשמל</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>			
+				<div><div class="parameter">מס מונה</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+			</div>
+			<div style="height:20%;">
+				<div class="title">גנרטור</div>	
+				<div><div class="parameter">גודל מא"ז ראשי בחדר</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+				<div><div class="parameter">סוג לוח חשמל </div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+			</div>
+			<div style="height:10%;">
+				<div><div class="parameter">הערות</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+			</div>
+		</div>
+		<div class="floating-box2" style="width:50%;">	
+			<div class="title">שת"פ חשמל</div>			
+			<div><div class="parameter">האם נותנים חשמל</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>		
+			<div style="display:inline-block;">
+				<div class="title">חברה א</div>
+				<div><div class="parameter">גוזל מא"ז</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div>
+				<div class="parameter">מיקום מא"ז</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+				<div><div class="parameter">קיי מונה?</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div>
+				<div class="parameter">סוג מונה</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>			
+				<div><div class="parameter">מס מונה</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+				<div><div class="parameter">קריאה מרחוק?</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+			</div>
+			<div style="display:inline-block;">
+				<div class="title">חברה ב</div>
+				<div><div class="parameter">גוזל מא"ז</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div>
+				<div class="parameter">מיקום מא"ז</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+				<div><div class="parameter">קיי מונה?</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div>
+				<div class="parameter">סוג מונה</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>			
+				<div><div class="parameter">מס מונה</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+				<div><div class="parameter">קריאה מרחוק?</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+			</div>
+			<div style="display:inline-block;">
+				<div class="title">חברה ג</div>
+				<div><div class="parameter">גוזל מא"ז</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div>
+				<div class="parameter">מיקום מא"ז</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+				<div><div class="parameter">קיי מונה?</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div>
+				<div class="parameter">סוג מונה</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>			
+				<div><div class="parameter">מס מונה</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+				<div><div class="parameter">קריאה מרחוק?</div><div class="insert"> <input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>*@

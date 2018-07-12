@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace NEW_CAM.Models
+{
+    public class CamHashmalModel
+    {
+        public string makor_hazanat_hashmal { get; set; }
+        public string mikum_maaz_rashi_hizoni { get; set; }
+        public string godel_maaz_bemaaz_hashmal { get; set; }
+        public string mone_behazanat_hashmal { get; set; }
+        public string mone_type { get; set; }
+        public string mone_num { get; set; }
+        public string contract_number { get; set; }
+
+
+
+        public string mikum_maaz_rashi_baheder { get; set; }
+        public string sug_luah_hasmal { get; set; }
+        public string kriat_mone_merahok { get; set; }
+        public string mone_tzrihat_hashmal { get; set; }
+        public string mone_num_heder { get; set; }
+      //  public string mone_tzrihat_hashmal { get; set; }
+
+        public List<CamHasmalCompany> CamHasmal_Company_list { get; set; }
+    }
+}

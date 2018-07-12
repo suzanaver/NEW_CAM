@@ -1,0 +1,205 @@
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\NEW_CAM.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\NEW_CAM.pdb
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\Antlr3.Runtime.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.Core.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\EntityFramework.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\Newtonsoft.Json.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\Oracle.DataAccess.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Net.Http.Formatting.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Helpers.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Http.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Http.WebHost.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Mvc.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Optimization.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Razor.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Deployment.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Razor.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\WebGrease.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\WebMatrix.Data.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\WebMatrix.WebData.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\EntityFramework.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\Newtonsoft.Json.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Net.Http.Formatting.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Helpers.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Http.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Http.WebHost.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Mvc.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.Razor.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Deployment.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Razor.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\WebMatrix.Data.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\WebMatrix.WebData.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.Core.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.dll
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.pdb
+C:\Users\shirs\Documents\Visual Studio 2012\Projects\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.csprojResolveAssemblyReference.cache
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\NEW_CAM.dll.config
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\NEW_CAM.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\NEW_CAM.pdb
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\Antlr3.Runtime.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.Core.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\EntityFramework.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\MvcCheckBoxList.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\Newtonsoft.Json.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\PagedList.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\PagedList.Mvc.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Net.Http.Formatting.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Helpers.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Http.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Http.WebHost.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Mvc.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Optimization.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Razor.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Deployment.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Razor.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\WebGrease.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\Antlr3.Runtime.pdb
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\Newtonsoft.Json.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\PagedList.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\PagedList.Mvc.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Helpers.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Mvc.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Razor.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Deployment.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Razor.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\EntityFramework.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Net.Http.Formatting.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Http.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\System.Web.Http.WebHost.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.Core.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.dll
+C:\Users\suzanna.vershinin\Desktop\DOT NET\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\NEW_CAM.dll.config
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\NEW_CAM.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\NEW_CAM.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\Antlr3.Runtime.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.Core.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\EntityFramework.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\MvcCheckBoxList.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\Newtonsoft.Json.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\PagedList.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\PagedList.Mvc.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Net.Http.Formatting.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Helpers.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Http.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Http.WebHost.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Mvc.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Optimization.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Razor.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Deployment.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Razor.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\WebGrease.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\Antlr3.Runtime.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\Newtonsoft.Json.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\PagedList.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\PagedList.Mvc.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Helpers.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Mvc.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Razor.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Deployment.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Razor.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\EntityFramework.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Net.Http.Formatting.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Http.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Http.WebHost.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.Core.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.dll
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.pdb
+C:\Users\suzanna.vershinin\Desktop\DOTNET\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.csprojResolveAssemblyReference.cache
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\NEW_CAM.dll.config
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\NEW_CAM.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\NEW_CAM.pdb
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\Antlr3.Runtime.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.Core.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\EntityFramework.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\MvcCheckBoxList.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\Newtonsoft.Json.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\PagedList.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\PagedList.Mvc.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Net.Http.Formatting.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Helpers.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Http.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Http.WebHost.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Mvc.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Optimization.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Razor.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Deployment.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Razor.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\WebGrease.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\Antlr3.Runtime.pdb
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\Newtonsoft.Json.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\PagedList.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\PagedList.Mvc.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Helpers.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Mvc.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Razor.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Deployment.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.WebPages.Razor.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\EntityFramework.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Net.Http.Formatting.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Http.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\System.Web.Http.WebHost.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.Core.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.dll
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.pdb
+C:\Users\suzanna.vershinin\Desktop\suzanna\DOTNET\NEW_CAM\NEW_CAM\obj\Debug\NEW_CAM.csprojResolveAssemblyReference.cache

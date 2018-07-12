@@ -1,0 +1,136 @@
+﻿@model NEW_CAM.Models.CamAirCondModel
+@{
+    ViewBag.Title = "AirCond";
+}
+
+<h2>AirCond</h2>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="~/Content/cam.css" rel="stylesheet" />
+  @*  <link href="~/Content/cam_air.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+<body>
+    <div id="wrapper" style ="float:left;">
+    <div class="userDetailsHeader" style="float:right; height:6%; width:100%;font-size:150%;"> 
+    <div style="float:right;width:70%;font-size:150%; color:black;text-align: center; ">כללי והנחיות גישה</div>
+	<div style="height:90%;">   
+          <input id="Submit1" type="submit" value="שמור" style ="background-color:green" />         
+	</div>
+</div>
+
+        <div class="userDetailsHeader" style="height: 10%;">
+            <div style="display: inline-block; border: 2px solid black; width: 30%; height: 100%;">
+                <div class="parameter">סוג אתר</div>
+                <div class="insert">
+                    <input type="text" name="Name" value="@Model.SITE_TYPE" />
+                </div>
+            </div>
+            <div style="display: inline-block; border: 2px solid black; width: 30%; height: 100%;">
+                <div class="parameter">סוג מבנה</div>
+                <div class="insert">
+                    <input type="text" name="Name" value="@Model.room_type" />
+                </div>
+            </div>
+            <div style="display: inline-block; border: 2px solid black; width: 30%; height: 100%;">
+                <div class="parameter">בעלות החדר</div>
+                <div class="insert">
+                    <input type="text" name="Name" value="@Model.owner" />
+                </div>
+            </div>
+        </div>
+        <div class="userDetailsHeader" style="height: 5%;">
+            <div class="parameter">סה"כ מזגנים בחדר?</div>
+            <div class="insert">
+                <input class="cond" type="text" name="conditionersNum" value="@Model.conditionersNum" />
+            </div>
+        </div>
+        <div class="userDetailsHeader" style="height: 30%;">
+
+            <div style="width: 25%; border: 2px solid black; height: 100%; float:right;  display: inline-block;border: 2px solid black;">
+                <div style="height: 20%; width: 90%; border: 2px solid green;">
+                        <div class="parameter2">סוג מזגן</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.TYPE_2" />
+                        </div>
+                </div>
+                <div style="height: 20%; width: 90%; style="height:100%; width:100%;"border: 2px solid green;">
+                        <div class="parameter2">יצרן</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.MANUFACTURER" />
+                        </div>
+                </div>
+                <div style="height: 20%; width: 90%; border: 2px solid green;">
+                        <div class="parameter2">הזנת מתח</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="todo:" />
+                        </div>
+                </div>
+                <div style="height: 20%; width: 90%; border: 2px solid green;">
+                        <div class="parameter2">הספק</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.SITE_TYPE" />
+                        </div>
+                </div>
+            </div>
+            <div style="width: 33%; border: 2px solid black; float:right; height: 100%; display: inline-block; border: 2px solid black;">
+                                <div style="height: 20%; width: 90%; border: 2px solid green;">
+                        <div class="parameter2">סוג מזגן</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.SITE_TYPE" />
+                        </div>
+                </div>
+                <div style="height: 20%; width: 90%; style="height:100%; width:100%;"border: 2px solid green;">
+                        <div class="parameter2">יצרן</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.SITE_TYPE" />
+                        </div>
+                </div>
+                <div style="height: 20%; width: 90%; border: 2px solid green;">
+                        <div class="parameter2">הזנת מתח</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.SITE_TYPE" />
+                        </div>
+                </div>
+                <div style="height: 20%; width: 90%; border: 2px solid green;">
+                        <div class="parameter2">הספק</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.SITE_TYPE" />
+                        </div>
+                </div>
+            </div>
+            <div style="width: 31%; border: 2px solid black;float:right;  height: 100%; display: inline-block; border: 2px solid black;">
+                               <div style="height: 20%; width: 90%; border: 2px solid green;">
+                        <div class="parameter2">סוג מזגן</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.SITE_TYPE" />
+                        </div>
+                </div>
+                <div style="height: 20%; width: 90%; style="height:100%; width:100%;"border: 2px solid green;">
+                        <div class="parameter2">יצרן</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.SITE_TYPE" />
+                        </div>
+                </div>
+                <div style="height: 20%; width: 90%; border: 2px solid green;">
+                        <div class="parameter2">הזנת מתח</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.SITE_TYPE" />
+                        </div>
+                </div>
+                <div style="height: 20%; width: 90%; border: 2px solid green;">
+                        <div class="parameter2">הספק</div>
+                        <div class="insert2">
+                             <input type="text" style="height:100%; width:100%;" name="Name" value="@Model.SITE_TYPE" />
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

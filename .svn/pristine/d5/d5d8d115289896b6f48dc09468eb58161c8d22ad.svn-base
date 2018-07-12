@@ -1,0 +1,59 @@
+﻿
+@model NEW_CAM.Models.CamAirCondModel
+@{
+    ViewBag.Title = "AirCond";
+}
+
+<h2>AirCond</h2>
+<!DOCTYPE html>
+<html>
+
+<head>
+        <link href="~/Content/cam.css" rel="stylesheet" />
+@*   <link href="cam_air.css" rel="stylesheet" type="text/css" />*@
+     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div class="userDetailsHeader " style="float:right; height:6%; width:100%;font-size:150%;"> 
+    <div style="float:right;width:70%;font-size:150%; color:black;text-align: center; ">כללי והנחיות גישה</div>
+	<div style="height:90%;">   
+          <input id="Submit1" type="submit" value="שמור" style ="background-color:green" />  
+       @*  <input style="float:left; height:100%; width:7%;font-size:100%;" id="Submit1" type="submit" value="שמור" />    *@
+	</div>
+</div>
+
+@*	<div class="userDetailsHeader" style="height:20%; "> 
+		<div style="display:inline-block; border: 2px solid black; width:20%; "><div class="parameter"> סוג אתר</div><div class="insert"><input type="text" name="Name" value="@Model.SITE_TYPE" /></div></div>
+		<div style="display:inline-block; border: 2px solid black;  width:20%;	"><div class="parameter"> סוג מבנה</div><div class="insert"><input type="text" name="Name" value="@Model.BUILDING_TYPE" /></div></div>
+		<div  style="display:inline-block; border: 2px solid black; width:20%;	"><div class="parameter">בעלות החדר</div><div class="insert"><input type="text" name="Name" value="@Model.ROOM_OWNER" /></div></div>
+		<div style="display:inline-block;border: 2px solid black;  width:20%;	"><div class="parameter">בעלות המזגן</div><div class="insert"><input type="text" name="Name" value="@Model.CONDIONER_OWNER" /></div></div>
+	</div>
+	<div class="userDetailsHeader" style="height:20%;"><div class="parameter">סה"כ מזגנים בחדר?</div><div class="insert">____________</div></div>
+	<div  class="userDetailsHeader" style="height:60%;">
+		<div style="width:33%;border: 2px solid black; height:100%;display:inline-block; border:2px solid black;">fddddddd
+			<div style="height:20%;width:100%;border: 2px solid green;">
+				<div style="height:100%;"><div style="width:40%; height:100%; border: 2px solid black;"></div><div style="width:40%;border: 2px solid black; "></div></div>
+			</div>
+			<div style="height:20%;border: 2px solid green;  ">
+				<div style="height:100%;"><div style="width:40%; height:100%; border: 2px solid black;"></div><div style="width:40%;border: 2px solid black; "></div></div>
+			</div>
+			<div style="height:20%;border: 2px solid green;  ">
+				<div style="height:100%;"><div style="width:40%; height:100%; border: 2px solid black;"></div><div style="width:40%;border: 2px solid black;"></div></div>	
+			</div>
+			<div style="height:20%;border: 2px solid green;  ">
+				<div style="height:100%;"><div style="width:40%; height:100%; border: 2px solid black;"></div><div style="width:40%;border: 2px solid black;"></div></div>
+			</div>
+		</div>
+		<div style="width:33%; border: 2px solid black;display:inline-block; height:100%;inline-block; border:2px solid black;">fddddddd
+		
+		</div>
+		<div style="width:31%; border: 2px solid black;height:100%;display:inline-block; border:2px solid black;">fddddddd
+		
+		</div>
+	</div>*@
+</div>
+</body>
+</html>
+
